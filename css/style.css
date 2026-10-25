@@ -327,5 +327,6 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;font-family:var(--fo
 
 /* back to top */
 .to-top{position:fixed;right:18px;bottom:90px;width:48px;height:48px;border-radius:14px;background:var(--card-2);border:1px solid var(--line-2);color:var(--accent);font-size:1.2rem;display:grid;place-items:center;z-index:130;box-shadow:0 18px 40px -18px rgba(0,0,0,.8);transition:opacity .25s var(--ease),transform .25s var(--ease),border-color .25s;opacity:0;pointer-events:none}
+.to-top[hidden]{display:none}
 .to-top.show{opacity:1;pointer-events:auto}
 .to-top:hover{border-color:var(--accent);transform:translateY(-3px)}

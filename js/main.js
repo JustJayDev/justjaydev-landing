@@ -97,7 +97,7 @@
     nav.classList.toggle('scrolled', y > 8);
     prog.style.width = (h > 0 ? y / h * 100 : 0) + '%';
     mbar.classList.toggle('show', y > innerHeight * 0.6 && (document.getElementById('contact').getBoundingClientRect().top > innerHeight * 0.5));
-    var tt = document.getElementById('toTop'); if (tt) tt.classList.toggle('show', y > innerHeight * 0.8);
+    var tt = document.getElementById('toTop'); if (tt) { var show = y > innerHeight * 0.8; tt.classList.toggle('show', show); tt.hidden = !show; }
     var cur = '';
     secs.forEach(function(s){ if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = s.id; });
     navLinks.forEach(function(a){
