@@ -1,0 +1,72 @@
+// TOKENS — the single source of truth for the design system.
+// Every value is a decision; components derive from these only.
+
+:root {
+  /* ---- color: Forge identity (keeping the brand) ---- */
+  --c-bg: #06070d;
+  --c-surface: #0d1018;
+  --c-surface-2: #121625;
+  --c-surface-3: #1a1f33;
+  --c-border: rgba(255, 255, 255, 0.08);
+  --c-border-strong: rgba(255, 255, 255, 0.18);
+  --c-text: #eef1fa;
+  --c-text-muted: #9aa3c0;
+  --c-text-dim: #5d6584;
+  --c-accent: #c6ff3d; /* electric lime — the forge */
+  --c-accent-cool: #3de8ff; /* cyan — secondary */
+  --c-accent-hot: #ff3dcb; /* magenta — rare, sparingly */
+  --c-accent-bg: rgba(198, 255, 61, 0.07);
+  --c-cool-bg: rgba(61, 232, 255, 0.06);
+
+  /* ---- type ---- */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+  --font-hi: "Noto Sans Devanagari", var(--font-body);
+
+  /* type scale — 1.25 (major third) */
+  --fs-xs: 0.75rem;  /* 12px */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-base: 1rem;   /* 16px */
+  --fs-md: 1.25rem;  /* 20px */
+  --fs-lg: 1.563rem; /* 25px */
+  --fs-xl: 2.5rem;   /* 40px */
+  --fs-2xl: 4.25rem; /* 68px — display */
+
+  /* ---- spacing (4px base) ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ---- radii ---- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-full: 999px;
+
+  /* ---- shadows ---- */
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 40px rgba(198, 255, 61, 0.1);
+  --shadow-lift: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  /* ---- layout ---- */
+  --content-max: 1160px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --header-h: 60px;
+  --grid-gap: 16px;
+
+  /* ---- motion ---- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-mid: 300ms;
+  --dur-slow: 600ms;
+}

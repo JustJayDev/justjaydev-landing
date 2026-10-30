@@ -1,0 +1,265 @@
+/* Components — buttons, chips, badges, project cards, skill pills, links. */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--c-text);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border-strong);
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--c-accent);
+    text-decoration: none;
+  }
+
+  &--primary {
+    background: var(--c-accent);
+    color: #000;
+    border-color: transparent;
+    font-weight: 700;
+    &:hover {
+      background: #d4ff6e;
+      border-color: transparent;
+    }
+  }
+}
+
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--c-accent-cool);
+  background: var(--c-cool-bg);
+  border: 1px solid rgba(61, 232, 255, 0.25);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-full);
+  letter-spacing: 0.04em;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--r-full);
+  &.live {
+    color: #000;
+    background: var(--c-accent);
+  }
+  &.soon {
+    color: var(--c-text-muted);
+    background: var(--c-surface-3);
+  }
+}
+
+.project-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: transform var(--dur-mid) var(--ease-out), border-color var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out);
+  &:hover, &:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--c-accent);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .project-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    .project-name {
+      font-size: var(--fs-md);
+    }
+  }
+
+  .project-tag {
+    color: var(--c-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .project-desc {
+    color: var(--c-text-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .project-link {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--c-accent);
+    font-weight: 600;
+  }
+}
+
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--c-text);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border-strong);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--r-full);
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  &:hover {
+    border-color: var(--c-accent-cool);
+    color: var(--c-accent-cool);
+  }
+}
+
+.link-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-5);
+  transition: border-color var(--dur-mid) var(--ease-out), transform var(--dur-mid) var(--ease-out);
+  &:hover {
+    border-color: var(--c-accent-cool);
+    transform: translateY(-3px);
+    text-decoration: none;
+  }
+  .link-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-md);
+  }
+  .link-sub {
+    color: var(--c-text-dim);
+    font-size: var(--fs-sm);
+    font-family: var(--font-mono);
+  }
+}
+
+.ship-entry {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--c-border);
+  &:last-child {
+    border-bottom: none;
+  }
+  .ship-date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-dim);
+    padding-top: 0.15rem;
+  }
+  .ship-title {
+    font-size: var(--fs-base);
+    margin-bottom: var(--sp-1);
+  }
+  .ship-desc {
+    color: var(--c-text-muted);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-2);
+  }
+}
+
+.palette-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18vh;
+  z-index: 100;
+  &.open {
+    display: flex;
+  }
+  .palette {
+    width: min(520px, 90vw);
+    background: var(--c-surface);
+    border: 1px solid var(--c-border-strong);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+  }
+  .palette input {
+    width: 100%;
+    background: var(--c-surface-2);
+    border: none;
+    border-bottom: 1px solid var(--c-border);
+    color: var(--c-text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-base);
+    padding: 1rem 1.25rem;
+    outline: none;
+  }
+  .palette-results {
+    max-height: 40vh;
+    overflow-y: auto;
+    .palette-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--c-text);
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      padding: 0.8rem 1.25rem;
+      cursor: pointer;
+      &:hover {
+        background: var(--c-surface-3);
+      }
+    }
+    .palette-empty {
+      padding: 1rem 1.25rem;
+      color: var(--c-text-dim);
+      font-size: var(--fs-sm);
+    }
+  }
+}
+
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 76px;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border-strong);
+  color: var(--c-text);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-full);
+  z-index: 40;
+  font-size: 1.1rem;
+  &:hover {
+    border-color: var(--c-accent);
+  }
+}
+@media (min-width: 720px) {
+  .to-top {
+    bottom: 24px;
+  }
+}

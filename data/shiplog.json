@@ -1,0 +1,7 @@
+[
+  { "date": "2026-10-24", "title": "KaizenFF channel", "desc": { "en": "Free Fire MAX YouTube channel launched — @kaizenff.official, logo + banner done", "hi": "Free Fire MAX YouTube चैनल लॉन्च — @kaizenff.official, लोगो + बैनर तैयार" }, "tag": "Gaming" },
+  { "date": "2026-10-15", "title": "shop-template v1", "desc": { "en": "Bilingual food-shop PWA — 89 tests, admin panel, live on Pages", "hi": "द्विभाषी फूड-शॉप PWA — 89 टेस्ट, एडमिन पैनल, Pages पर लाइव" }, "tag": "PWA" },
+  { "date": "2026-10-12", "title": "justjaydev-landing v9", "desc": { "en": "i18n, PWA, hero art, motion system", "hi": "i18n, PWA, हीरो आर्ट, मोशन सिस्टम" }, "tag": "Site" },
+  { "date": "2026-10-01", "title": "Lint pipeline", "desc": { "en": "Stylelint + Prettier on Android via Ubuntu sandbox", "hi": "Ubuntu सैंडबॉक्स से Android पर Stylelint + Prettier" }, "tag": "Tooling" },
+  { "date": "2026-09-20", "title": "NightForge brand", "desc": { "en": "Identity, workspace, first public repos", "hi": "पहचान, वर्कस्पेस, पहले पब्लिक रेपो" }, "tag": "Brand" }
+]

@@ -1,49 +1,14 @@
 {
-  "name": "Jay (JustJayDev) — Fast, modern websites",
+  "name": "JustJayDev",
   "short_name": "JustJayDev",
-  "description": "Fast, modern websites, revamps and installable web apps for Indian businesses, in English and Hindi.",
-  "start_url": "./?src=pwa",
-  "scope": "./",
+  "description": "Jay — builder, developer, gamer. Projects and links.",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#08090e",
+  "theme_color": "#08090e",
   "orientation": "portrait-primary",
-  "lang": "en",
-  "categories": [
-    "business",
-    "productivity",
-    "developer"
-  ],
   "icons": [
-    {
-      "src": "assets/icon-32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Free website audit",
-      "url": "./#contact",
-      "description": "Tell me about your business"
-    },
-    {
-      "name": "See my work",
-      "url": "./#work",
-      "description": "Shipped projects"
-    }
-  ],
-  "id": "./"
+    { "src": "assets/icon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
 }

@@ -1,0 +1,113 @@
+export const dict = {
+    en: {
+        "nav.projects": "Projects",
+        "nav.shiplog": "Ship Log",
+        "nav.skills": "Skills",
+        "nav.links": "Links",
+        "hero.eyebrow": "Builder · Developer · Gamer",
+        "hero.quote": "They call it impossible. I call it inevitable. Because an emperor's will cannot be denied.",
+        "hero.cta1": "See my work",
+        "hero.cta2": "Links",
+        "hero.share": "Share",
+        "status.label": "Currently building",
+        "buildon.label": "Built on",
+        "github.label": "GitHub",
+        "github.repos": "repos",
+        "github.stars": "stars",
+        "github.lastPush": "last push",
+        "projects.title": "Projects",
+        "shiplog.title": "Ship Log",
+        "skills.title": "Skills",
+        "links.title": "Links",
+        "footer.built": "Built on Android with Operit · Hosted on GitHub Pages",
+        "palette.hint": "Type a command…",
+        "palette.title": "Command palette",
+        "status.na": "No status",
+        "time.now": "now",
+    },
+    hi: {
+        "nav.projects": "प्रोजेक्ट्स",
+        "nav.shiplog": "शिप लॉग",
+        "nav.skills": "स्किल्स",
+        "nav.links": "लिंक्स",
+        "hero.eyebrow": "बिल्डर · डेवलपर · गेमर",
+        "hero.quote": "वे इसे असंभव कहते हैं। मैं इसे अपरिहार्य कहता हूँ। क्योंकि सम्राट की इच्छा को नकारा नहीं जा सकता।",
+        "hero.cta1": "मेरा काम देखें",
+        "hero.cta2": "लिंक्स",
+        "hero.share": "शेयर",
+        "status.label": "अभी बना रहा हूँ",
+        "buildon.label": "निर्मित पर",
+        "github.label": "GitHub",
+        "github.repos": "रेपो",
+        "github.stars": "स्टार्स",
+        "github.lastPush": "आखिरी पुश",
+        "projects.title": "प्रोजेक्ट्स",
+        "shiplog.title": "शिप लॉग",
+        "skills.title": "स्किल्स",
+        "links.title": "लिंक्स",
+        "footer.built": "Android पर Operit से निर्मित · GitHub Pages पर होस्ट",
+        "palette.hint": "कमांड लिखें…",
+        "palette.title": "कमांड पैलेट",
+        "status.na": "कोई स्थिति नहीं",
+        "time.now": "अभी",
+    },
+};
+let current = "en";
+export function getLang() {
+    return current;
+}
+export function setLang(lang) {
+    current = lang;
+}
+export function t(key) {
+    return dict[current][key] ?? dict.en[key] ?? key;
+}
+function applyElement(el) {
+    const key = el.getAttribute("data-i18n");
+    const htmlKey = el.getAttribute("data-i18n-html");
+    if (htmlKey && el.tagName !== "INPUT") {
+        el.innerHTML = t(htmlKey);
+    }
+    else if (key) {
+        el.textContent = t(key);
+    }
+}
+export function applyLang() {
+    document.documentElement.lang = current;
+    document.documentElement.classList.toggle("lang-hi", current === "hi");
+    document
+        .querySelectorAll("[data-i18n], [data-i18n-html]")
+        .forEach(applyElement);
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) {
+        toggle.textContent = current === "en" ? "हिन्दी" : "English";
+        toggle.setAttribute("aria-label", current === "en" ? "Switch to Hindi" : "Switch to English");
+    }
+}
+export function initI18n() {
+    // If user had a saved language, use it.
+    let saved = "en";
+    try {
+        const s = localStorage.getItem("forege-lang");
+        if (s === "en" || s === "hi")
+            saved = s;
+    }
+    catch {
+        /* storage unavailable */
+    }
+    setLang(saved);
+    applyLang();
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            setLang(current === "en" ? "hi" : "en");
+            applyLang();
+            try {
+                localStorage.setItem("forege-lang", current);
+            }
+            catch {
+                /* ignore */
+            }
+        });
+    }
+}

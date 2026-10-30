@@ -1,0 +1,106 @@
+.shell {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  height: var(--header-h);
+  padding-inline: var(--gutter);
+  background: rgba(6, 7, 13, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-border);
+
+  .brand {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--c-accent);
+    font-weight: 600;
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--sp-5);
+    a {
+      color: var(--c-text-muted);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      &:hover {
+        color: var(--c-text);
+      }
+    }
+  }
+
+  .lang-btn {
+    background: var(--c-surface-2);
+    border: 1px solid var(--c-border-strong);
+    color: var(--c-text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--r-full);
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease-out);
+    &:hover {
+      border-color: var(--c-accent);
+    }
+  }
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(6, 7, 13, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--c-border);
+  z-index: 50;
+  a {
+    color: var(--c-text-muted);
+    font-size: 1.25rem;
+    padding: 0.75rem 1.25rem;
+    &:hover {
+      color: var(--c-accent);
+    }
+  }
+}
+
+.footer {
+  padding: var(--sp-8) var(--gutter) calc(var(--sp-8) + 64px);
+  border-top: 1px solid var(--c-border);
+  text-align: center;
+  color: var(--c-text-dim);
+  font-size: var(--fs-sm);
+  .build-info {
+    margin-top: var(--sp-2);
+  }
+}
+
+@media (min-width: 720px) {
+  .bottom-nav {
+    display: none;
+  }
+  .footer {
+    padding-bottom: var(--sp-8);
+  }
+}
+
+@media (max-width: 719px) {
+  .topbar .nav {
+    display: none;
+  }
+}

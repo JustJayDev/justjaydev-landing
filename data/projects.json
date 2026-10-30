@@ -1,0 +1,102 @@
+[
+  {
+    "id": "nightforge",
+    "name": "NightForge",
+    "tag": { "en": "Live brand", "hi": "लाइव ब्रांड" },
+    "desc": { "en": "My builder brand. Where projects, plugins and tools live.", "hi": "मेरा बिल्डर ब्रांड। यहाँ प्रोजेक्ट्स, प्लगिन्स और टूल्स रहते हैं।" },
+    "url": "https://github.com/nightforgeio",
+    "status": "live",
+    "featured": true,
+    "tech": ["GitHub", "Automation", "Shell"]
+  },
+  {
+    "id": "tqg",
+    "name": "Team Quantum Gaming",
+    "tag": { "en": "eSports", "hi": "ई-स्पोर्ट्स" },
+    "desc": { "en": "Free Fire MAX esports dashboard — admin command center, live on staging.", "hi": "Free Fire MAX ई-स्पोर्ट्स डैशबोर्ड — एडमिन कमांड सेंटर, स्टेजिंग पर लाइव।" },
+    "url": "https://justjaydev.github.io/team-quantum-gaming/",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "TypeScript", "Worker", "Sheets"]
+  },
+  {
+    "id": "contact-hub",
+    "name": "NightForge Connect",
+    "tag": { "en": "Contact hub", "hi": "कॉन्टैक्ट हब" },
+    "desc": { "en": "Open-source contact forms backed by Google Sheets — no backend server.", "hi": "Google Sheets द्वारा संचालित ओपन-सोर्स कॉन्टैक्ट फॉर्म — कोई बैकएंड सर्वर नहीं।" },
+    "url": "https://justjaydev.github.io/nightforge-connect/",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "JS", "Sheets", "PWA"]
+  },
+  {
+    "id": "ar-esport",
+    "name": "AR Esport",
+    "tag": { "en": "eSports", "hi": "ई-स्पोर्ट्स" },
+    "desc": { "en": "Mobile tournament landing — win real cash, live on staging.", "hi": "मोबाइल टूर्नामेंट लैंडिंग — असली नकद जीतें, स्टेजिंग पर लाइव।" },
+    "url": "https://justjaydev.github.io/ar-esport-revamp/",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "CSS", "JS", "SEO"]
+  },
+  {
+    "id": "dairy",
+    "name": "K.K.C Dairy",
+    "tag": { "en": "Local business", "hi": "स्थानीय व्यवसाय" },
+    "desc": { "en": "Bilingual dairy business site — Hindi/English, ordering flow.", "hi": "द्विभाषी डेयरी व्यवसाय साइट — हिंदी/अंग्रेज़ी, ऑर्डर फ्लो।" },
+    "url": "https://justjaydev.github.io/k-k-c-dairy/",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "CSS", "JS", "i18n"]
+  },
+  {
+    "id": "physio",
+    "name": "Indore Physio Directory",
+    "tag": { "en": "Directory", "hi": "निर्देशिका" },
+    "desc": { "en": "Verified physiotherapy clinic directory for Indore.", "hi": "इंदौर के लिए सत्यापित फिजियोथेरेपी क्लिनिक निर्देशिका।" },
+    "url": "https://justjaydev.github.io/indore-physio-directory/",
+    "status": "live",
+    "featured": false,
+    "tech": ["HTML", "CSS", "Data", "SEO"]
+  },
+  {
+    "id": "shop-template",
+    "name": "shop-template",
+    "tag": { "en": "Live PWA", "hi": "लाइव PWA" },
+    "desc": { "en": "Bilingual food-shop PWA — admin panel, 89 tests, GitHub Pages.", "hi": "द्विभाषी फूड-शॉप PWA — एडमिन पैनल, 89 टेस्ट, GitHub Pages।" },
+    "url": "https://justjaydev.github.io/shop-template/",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "CSS", "JS", "PWA", "Service Worker"]
+  },
+  {
+    "id": "match-archive",
+    "name": "Match Archive",
+    "tag": { "en": "TQG", "hi": "TQG" },
+    "desc": { "en": "Free Fire MAX match archive — tournament history for TQG.", "hi": "Free Fire MAX मैच आर्काइव — TQG के लिए टूर्नामेंट इतिहास।" },
+    "url": "https://justjaydev.github.io/match-archive/",
+    "status": "live",
+    "featured": false,
+    "tech": ["HTML", "JS", "Data"]
+  },
+  {
+    "id": "kaizenff",
+    "name": "KaizenFF",
+    "tag": { "en": "Live channel", "hi": "लाइव चैनल" },
+    "desc": { "en": "Free Fire MAX gameplay — no commentary, just fire. My YouTube channel.", "hi": "Free Fire MAX गेमप्ले — बिना कमेंट्री, सिर्फ फायर। मेरा YouTube चैनल।" },
+    "url": "https://www.youtube.com/@kaizenff.official",
+    "status": "live",
+    "featured": false,
+    "tech": ["YouTube", "Free Fire MAX", "Gaming"]
+  },
+  {
+    "id": "future",
+    "name": "More builds",
+    "tag": { "en": "Future", "hi": "भविष्य" },
+    "desc": { "en": "New projects get added here as they ship.", "hi": "नए प्रोजेक्ट शिप होने पर यहाँ जुड़ेंगे।" },
+    "url": null,
+    "status": "soon",
+    "featured": false,
+    "tech": []
+  }
+]
