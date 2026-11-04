@@ -8,6 +8,10 @@
   color: var(--c-text);
   background: var(--c-surface-2);
   border: 1px solid var(--c-border-strong);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.7rem 1.4rem;
   border-radius: var(--r-full);
   cursor: pointer;
@@ -20,11 +24,11 @@
 
   &--primary {
     background: var(--c-accent);
-    color: #000;
+    color: var(--c-ink);
     border-color: transparent;
     font-weight: 700;
     &:hover {
-      background: #d4ff6e;
+      background: var(--c-accent-hover);
       border-color: transparent;
     }
   }
@@ -36,7 +40,7 @@
   font-size: var(--fs-xs);
   color: var(--c-accent-cool);
   background: var(--c-cool-bg);
-  border: 1px solid rgba(61, 232, 255, 0.25);
+  border: 1px solid var(--c-border-strong);
   padding: 0.2rem 0.6rem;
   border-radius: var(--r-full);
   letter-spacing: 0.04em;
@@ -50,7 +54,7 @@
   padding: 0.25rem 0.55rem;
   border-radius: var(--r-full);
   &.live {
-    color: #000;
+    color: var(--c-ink);
     background: var(--c-accent);
   }
   &.soon {
@@ -106,6 +110,9 @@
 
   .project-link {
     margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: var(--font-mono);
     font-size: var(--fs-sm);
     color: var(--c-accent);
@@ -183,7 +190,7 @@
 .palette-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--c-overlay);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: none;
@@ -225,6 +232,7 @@
       color: var(--c-text);
       font-family: var(--font-display);
       font-size: var(--fs-sm);
+      min-height: 44px;
       padding: 0.8rem 1.25rem;
       cursor: pointer;
       &:hover {

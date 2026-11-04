@@ -48,8 +48,8 @@
   padding: var(--sp-16) var(--sp-8);
   gap: var(--sp-8);
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
   background-size: 44px 44px;
 
   #network-canvas {
@@ -100,7 +100,7 @@
     height: 88px;
     border-radius: 50%;
     border: 2px solid var(--c-accent);
-    box-shadow: 0 0 30px rgba(198, 255, 61, 0.25);
+    box-shadow: 0 0 30px var(--c-accent-bg);
   }
 
   .hero-eyebrow {
@@ -113,7 +113,7 @@
 
   .hero-name {
     font-size: var(--fs-2xl);
-    background: linear-gradient(120deg, #fff 0%, var(--c-accent) 55%, var(--c-accent-cool) 100%);
+    background: linear-gradient(120deg, var(--c-hero-from) 0%, var(--c-accent) 55%, var(--c-accent-cool) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

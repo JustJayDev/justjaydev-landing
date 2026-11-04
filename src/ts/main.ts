@@ -12,10 +12,12 @@ import {
   initTermTyping,
 } from "./extras.js";
 import { initGithubStats } from "./github.js";
+import { initThemeUi } from "./theme-ui.js";
 
 async function boot(): Promise<void> {
   initI18n();
   initPalette();
+  initThemeUi();
   initFooterYear();
   initClock();
   initShare();

@@ -6,9 +6,11 @@ import { initReveal, initScramble } from "./motion.js";
 import { initPalette } from "./palette.js";
 import { initParticles, initClock, initShare, initFooterYear, initTermTyping, } from "./extras.js";
 import { initGithubStats } from "./github.js";
+import { initThemeUi } from "./theme-ui.js";
 async function boot() {
     initI18n();
     initPalette();
+    initThemeUi();
     initFooterYear();
     initClock();
     initShare();

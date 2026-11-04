@@ -46,7 +46,7 @@ img {
 
 ::selection {
   background: var(--c-accent);
-  color: #000;
+  color: var(--c-ink);
 }
 
 :focus-visible {
@@ -60,7 +60,10 @@ img {
   left: -9999px;
   top: 0;
   background: var(--c-accent);
-  color: #000;
+  color: var(--c-ink);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   padding: 0.6rem 1rem;
   z-index: 999;
   &:focus {

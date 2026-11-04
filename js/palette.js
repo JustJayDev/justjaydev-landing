@@ -1,3 +1,4 @@
+import { cycleTheme, cycleTypePair } from "./theme-ui.js";
 // palette.ts — Ctrl+K command palette.
 export function initPalette() {
     const trigger = document.getElementById("palette-trigger");
@@ -41,16 +42,21 @@ export function initPalette() {
             { k: "skills", label: "Jump to Skills", target: "#skills" },
             { k: "links", label: "Jump to Links", target: "#links" },
             { k: "top", label: "Back to top", target: "#main" },
-            { k: "theme", label: "Toggle theme (soon)", target: "" },
+            { k: "theme", label: "Theme: next", target: "", action: "theme" },
+            { k: "type", label: "Type pairing: next", target: "", action: "type" },
         ];
         const filtered = q ? commands.filter((c) => c.k.includes(q) || c.label.toLowerCase().includes(q)) : commands;
-        filtered.slice(0, 6).forEach((c) => {
+        filtered.slice(0, 8).forEach((c) => {
             const btn = document.createElement("button");
             btn.type = "button";
             btn.className = "palette-item";
             btn.textContent = c.label;
             btn.addEventListener("click", () => {
                 close();
+                if (c.action === "theme")
+                    cycleTheme();
+                if (c.action === "type")
+                    cycleTypePair();
                 if (c.target) {
                     const el = document.querySelector(c.target);
                     if (el)
