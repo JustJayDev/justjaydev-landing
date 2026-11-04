@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# check.sh — v10 "Forge Station" verification pipeline
+# check.sh — v11 "Forge Station" verification pipeline
 set -o pipefail
 cd "$(dirname "$0")/.."
 
@@ -7,7 +7,7 @@ PASS=0; FAIL=0
 ok()   { PASS=$((PASS+1)); echo "  ✓ $1"; }
 bad()  { FAIL=$((FAIL+1)); echo "  ✗ $1"; }
 
-echo '═══ justjaydev-landing v10 — check suite ═══'
+echo '═══ justjaydev-landing v11 — check suite ═══'
 
 # 1. Build pipeline (Python orchestrates sass + tsc)
 echo '── Build (python3 src/py/build.py) ──'
@@ -19,7 +19,7 @@ if [ -s css/main.css ]; then ok "css/main.css ($(wc -c < css/main.css) bytes)"; 
 
 # 3. Compiled JS modules exist
 echo '── JS output ──'
-for f in js/main.js js/data.js js/i18n.js js/render.js js/motion.js js/palette.js js/extras.js; do
+for f in js/main.js js/data.js js/i18n.js js/render.js js/motion.js js/palette.js js/extras.js js/github.js; do
   if [ -s "$f" ]; then ok "$f"; else bad "$f missing/empty"; fi
 done
 

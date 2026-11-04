@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -24,6 +25,8 @@ CSS = ROOT / "css"
 JS = ROOT / "js"
 SRC_SCSS = ROOT / "src/scss/main.scss"
 TSC = Path("/root/forge-tools/node_modules/.bin/tsc")
+SASS = Path("/tmp/sass-tool/node_modules/.bin/sass")
+# sass lives in /tmp/sass-tool — npx sass hangs in this sandbox (no npm registry access)
 # tsc lives in /root/forge-tools — a real filesystem, since /sdcard (FUSE)
 # cannot create the node_modules/.bin symlinks that npm needs.
 
@@ -49,10 +52,17 @@ def validate_data() -> None:
                 raise SystemExit(f"Project {proj.get('id')} missing key {key}")
 
 
+def check_legacy() -> None:
+    """Warn if legacy css/style.css (v9 leftover, tracked in git) is missing.
+    It is not referenced by index.html but is tracked — deleting it silently
+    would be an unrelated change. Keep it until an explicit removal."""
+    if not (CSS / "style.css").exists():
+        print("warn: css/style.css missing (legacy, untracked since v10 — restore from git if needed)")
+
 def build_css() -> None:
     """Compile SCSS -> CSS with dart-sass."""
     os.makedirs(CSS, exist_ok=True)
-    rc, out = sh(f"npx sass --style=compressed {SRC_SCSS} {CSS / 'main.css'}")
+    rc, out = sh(f"{SASS} --style=compressed {SRC_SCSS} {CSS / 'main.css'}")
     if rc != 0:
         raise SystemExit(f"Sass failed:\n{out}")
     print("css: compiled main.css")
@@ -78,14 +88,33 @@ def run_tests() -> None:
 
 
 def report() -> None:
-    """Report build stats."""
+    """Report build stats and stamp the measured numbers into index.html.
+    The hero terminal shows these values — they must be measured, never
+    hand-typed, or they drift from the actual build (v10 showed fake sizes)."""
     css_size = (CSS / "main.css").stat().st_size if (CSS / "main.css").exists() else 0
     js_size = sum(f.stat().st_size for f in JS.glob("*.js"))
     print(f"build: css={css_size/1024:.1f}KB js={js_size/1024:.1f}KB")
+    # stamp terminal stats into index.html from the measured sizes + test count
+    idx = ROOT / "index.html"
+    if idx.exists():
+        html = idx.read_text(encoding="utf-8")
+        # count tests from the test files' assert calls is unreliable; instead
+        # run the dom test and parse "N passed"
+        rc, out = sh(f"node {ROOT / 'tests/dom.test.cjs'}")
+        m = re.search(r"(\d+) passed", out)
+        passed = m.group(1) if m else "?"
+        projects = json.loads((DATA / "projects.json").read_text(encoding="utf-8"))
+        live_n = len([x for x in projects if x.get("status") == "live"])
+        new_build = f"css={css_size/1024:.1f}KB js={js_size/1024:.1f}KB · {passed} tests passed"
+        html = re.sub(r'<span id="term-build-stats">[^<]*</span>', f'<span id="term-build-stats">{new_build}</span>', html)
+        html = re.sub(r'<span id="term-live-stats">[^<]*</span>', f'<span id="term-live-stats">{live_n} builds live on staging</span>', html)
+        idx.write_text(html, encoding="utf-8")
+        print(f"build: stamped terminal stats ({new_build}; {live_n} live)")
 
 
 def main() -> None:
     validate_data()
+    check_legacy()
     build_css()
     build_ts()
     run_tests()

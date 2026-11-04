@@ -1,6 +1,6 @@
-// Service Worker — v10 "Forge Station" (cache jj-v15).
+// Service Worker — v11 "Forge Station" (cache jj-v16).
 // Network-first for data JSON, cache-first for static assets.
-var CACHE = "jj-v15";
+var CACHE = "jj-v16";
 var STATIC = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ var STATIC = [
   "./js/motion.js",
   "./js/palette.js",
   "./js/extras.js",
+  "./js/github.js",
   "./js/types.js",
   "./data/projects.json",
   "./data/links.json",
@@ -26,7 +27,6 @@ var STATIC = [
   "./assets/icon-512.png",
   "./manifest.json",
 ];
-
 self.addEventListener("install", function (e) {
   e.waitUntil(
     caches
@@ -45,7 +45,6 @@ self.addEventListener("install", function (e) {
       }),
   );
 });
-
 self.addEventListener("activate", function (e) {
   e.waitUntil(
     caches
@@ -66,7 +65,6 @@ self.addEventListener("activate", function (e) {
       }),
   );
 });
-
 self.addEventListener("fetch", function (e) {
   var url = new URL(e.request.url);
   if (e.request.method !== "GET") return;
@@ -88,10 +86,8 @@ self.addEventListener("fetch", function (e) {
     );
     return;
   }
-
   // GitHub API: network only, never cache
   if (url.hostname === "api.github.com") return;
-
   // Static: cache-first with network fallback
   e.respondWith(
     caches

@@ -1,5 +1,29 @@
 # Changelog
-
+## v11 — "Engineering Ledger" (2026-11-04)
+- **Content honesty.** All project links verified live (HTTP 200). Deleted repos
+  `team-quantum-gaming` / `match-archive` removed; added `toxic-quad-gaming`
+  (successor) and `gamex-zone-revamp`. Projects now render **9 live builds**.
+- **Terminal numbers are measured, not typed.** `src/py/build.py` stamps
+  `term-build-stats` / `term-live-stats` from the real build output on every
+  run (`css=16.0KB js=23.2KB · 53 tests passed` at ship time). v10 showed
+  fabricated sizes (`13.1KB / 19.3KB / 70 tests`).
+- **GitHub tile wired to the API.** New `src/ts/github.ts` fetches public user
+  and repo stats on load; static fallback in HTML (`repos 8 · stars 0 · last
+  push 2026-11-01`, verified via the GitHub API 2026-11-04) covers no-JS/at-rest.
+- **Contrast fixed.** `--c-text-dim` `#5d6584` → `#8a93b2` (3.51:1 → 6.61:1,
+  passes WCAG AA). `theme-color` unified to `#06070d` in manifest + HTML.
+- **i18n completeness.** Added `projects.open` key; `render.ts` re-renders
+  projects on language toggle so link labels follow the toggle.
+- **Build pipeline hardened.** `build.py` calls the local dart-sass binary
+  (`/tmp/sass-tool`) instead of `npx sass` (hangs in sandbox). `package.json`
+  bumped to 11.0.0; tests cover `js/github.js`; `scripts/check.sh` updated.
+### Verified
+- `python3 src/py/build.py` — exit 0, stamps 16.0KB/23.2KB/53 tests, 9 live.
+- `tests/dom.test.cjs` 53/53, `tests/build.test.cjs` 18/18 (github included).
+- `scripts/check.sh` 23/23. Code weight 57KB vs 120KB budget.
+- GitHub API (2026-11-04): nightforgeio=1 repo, JustJayDev=7, total stars 0,
+  last push toxic-quad-gaming 2026-11-01.
+- Contrast: dim 6.61:1, muted 8.02:1, body text 17.82:1.
 ## v8 — tablet/phone fixes, offline fix, honest verification
 - **Hero art hidden below 1200px.** Without a side gutter it sat behind the card
   text on narrower screens. It now shows only on wide screens where there is room.

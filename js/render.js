@@ -1,4 +1,4 @@
-import { getLang } from "./i18n.js";
+import { getLang, t } from "./i18n.js";
 export function renderProjects(data) {
     const grid = document.getElementById("projects-grid");
     if (!grid)
@@ -43,7 +43,7 @@ export function renderProjects(data) {
             link.href = p.url;
             link.target = "_blank";
             link.rel = "noopener";
-            link.textContent = "Open →";
+            link.textContent = t("projects.open");
             card.appendChild(link);
         }
         grid.appendChild(card);

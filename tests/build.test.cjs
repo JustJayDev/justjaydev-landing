@@ -36,6 +36,7 @@ if (fs.existsSync(cssPath)) {
   "js/motion.js",
   "js/palette.js",
   "js/extras.js",
+  "js/github.js",
 ].forEach((f) => {
   assert(fs.existsSync(path.join(root, f)), f + " exists");
 });

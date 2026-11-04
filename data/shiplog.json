@@ -1,7 +1,10 @@
 [
+  { "date": "2026-11-04", "title": "Forge Station v11", "desc": { "en": "Landing revamp — engineering-ledger design, all project links verified live, honest build numbers, GitHub tile now wired to the API", "hi": "लैंडिंग का नया रूप — इंजीनियरिंग-लेजर डिज़ाइन, सभी प्रोजेक्ट लिंक लाइव वेरिफ़ाइड, सच्चा बिल्ड नंबर, GitHub टाइल अब API से जुड़ा" }, "tag": "Site" },
+  { "date": "2026-11-04", "title": "contact-hub git repaired", "desc": { "en": "Local repo was corrupt; re-cloned from the healthy remote — nightforge-connect now clean on main", "hi": "लोकल रेपो खराब था; हेल्दी रिमोट से दोबारा क्लोन किया — nightforge-connect अब main पर साफ़" }, "tag": "Tooling" },
+  { "date": "2026-11-01", "title": "Toxic Quad Gaming live", "desc": { "en": "Successor to team-quantum-gaming — new squad site pushed to main", "hi": "team-quantum-gaming का उत्तराधिकारी — नई दस्ता साइट main पर पुश की गई" }, "tag": "Gaming" },
+  { "date": "2026-10-31", "title": "GameX Zone revamp live", "desc": { "en": "Tournament arena landing on its own SCSS/TS/Python pipeline", "hi": "टूर्नामेंट एरिना लैंडिंग — अपने SCSS/TS/Python पाइपलाइन पर" }, "tag": "Gaming" },
+  { "date": "2026-10-30", "title": "MIGRATION v2 shipped", "desc": { "en": "7 repos live on JustJayDev staging; landing stays on nightforgeio", "hi": "JustJayDev स्टेजिंग पर 7 रेपो लाइव; लैंडिंग nightforgeio पर ही" }, "tag": "Site" },
   { "date": "2026-10-24", "title": "KaizenFF channel", "desc": { "en": "Free Fire MAX YouTube channel launched — @kaizenff.official, logo + banner done", "hi": "Free Fire MAX YouTube चैनल लॉन्च — @kaizenff.official, लोगो + बैनर तैयार" }, "tag": "Gaming" },
-  { "date": "2026-10-15", "title": "shop-template v1", "desc": { "en": "Bilingual food-shop PWA — 89 tests, admin panel, live on Pages", "hi": "द्विभाषी फूड-शॉप PWA — 89 टेस्ट, एडमिन पैनल, Pages पर लाइव" }, "tag": "PWA" },
-  { "date": "2026-10-12", "title": "justjaydev-landing v9", "desc": { "en": "i18n, PWA, hero art, motion system", "hi": "i18n, PWA, हीरो आर्ट, मोशन सिस्टम" }, "tag": "Site" },
-  { "date": "2026-10-01", "title": "Lint pipeline", "desc": { "en": "Stylelint + Prettier on Android via Ubuntu sandbox", "hi": "Ubuntu सैंडबॉक्स से Android पर Stylelint + Prettier" }, "tag": "Tooling" },
+  { "date": "2026-10-15", "title": "shop-template v1", "desc": { "en": "Bilingual food-shop PWA — WhatsApp order handoff, live on Pages", "hi": "द्विभाषी फ़ूड-शॉप PWA — WhatsApp ऑर्डर हैंडऑफ़, Pages पर लाइव" }, "tag": "PWA" },
   { "date": "2026-09-20", "title": "NightForge brand", "desc": { "en": "Identity, workspace, first public repos", "hi": "पहचान, वर्कस्पेस, पहले पब्लिक रेपो" }, "tag": "Brand" }
 ]

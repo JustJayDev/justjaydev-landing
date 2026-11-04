@@ -1,11 +1,11 @@
 {
   "name": "JustJayDev",
   "short_name": "JustJayDev",
-  "description": "Jay — builder, developer, gamer. Projects and links.",
+  "description": "Jay — builder, developer, gamer. Verified live builds and links.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#08090e",
-  "theme_color": "#08090e",
+  "background_color": "#06070d",
+  "theme_color": "#06070d",
   "orientation": "portrait-primary",
   "icons": [
     { "src": "assets/icon-32.png", "sizes": "32x32", "type": "image/png" },

@@ -9,7 +9,7 @@
     <title>JustJayDev · Forge Station</title>
     <meta
       name="description"
-      content="Jay (JustJayDev): builder, developer, gamer. Projects, ship log and links — built as a four-language pipeline."
+      content="Jay (JustJayDev): builder, developer, gamer. Verified live builds, ship log and links — built as a four-language pipeline."
     />
     <meta name="theme-color" content="#06070d" />
     <meta
@@ -26,7 +26,7 @@
     <meta property="og:title" content="JustJayDev · Forge Station" />
     <meta
       property="og:description"
-      content="Builder, developer, gamer. Projects, team and links — built as a four-language pipeline."
+      content="Builder, developer, gamer. Verified live builds, ship log and links."
     />
     <meta
       property="og:url"
@@ -46,7 +46,7 @@
     <meta name="twitter:title" content="JustJayDev · Forge Station" />
     <meta
       name="twitter:description"
-      content="Builder, developer, gamer. Projects, team and links."
+      content="Builder, developer, gamer. Verified live builds, ship log and links."
     />
     <meta
       name="twitter:image"
@@ -150,7 +150,7 @@
 
     <main id="main" class="shell">
       <div class="bento">
-        <!-- HERO: asymmetric split — identity left, live terminal right -->
+        <!-- HERO: asymmetric split — identity left, forge terminal right -->
         <section class="tile tile-hero reveal" id="hero">
           <canvas id="network-canvas" aria-hidden="true"></canvas>
           <div class="hero-content">
@@ -189,7 +189,7 @@
             </div>
           </div>
 
-          <!-- Live forge terminal -->
+          <!-- Forge terminal — numbers are injected at build time from measured values -->
           <div class="hero-term" aria-hidden="true">
             <div class="term-bar">
               <span class="term-dot term-dot--r"></span>
@@ -205,7 +205,7 @@
               </div>
               <div class="term-line term-out">
                 <span class="term-ok">✓</span>
-                <span>css=13.1KB js=19.3KB · 70 tests passed</span>
+                <span id="term-build-stats">css=16.0KB js=23.2KB · 53 tests passed</span>
               </div>
               <div class="term-line">
                 <span class="term-prompt">~/forge ❯</span>
@@ -213,11 +213,7 @@
               </div>
               <div class="term-line term-out">
                 <span class="term-ok">✓</span>
-                <span>7 builds live on staging</span>
-              </div>
-                <div class="term-line term-out">
-                <span class="term-ok">✓</span>
-                <span>uptime 100% · IST clock live</span>
+                <span id="term-live-stats">9 builds live on staging</span>
               </div>
             </div>
           </div>
@@ -263,23 +259,25 @@
           <p class="term-line">deploy --platform=github-pages <span class="ok">✓</span></p>
         </section>
 
-        <!-- GITHUB STATS -->
+        <!-- GITHUB STATS — populated from the GitHub API at runtime, static
+             fallback shipped in HTML so no-JS/at-rest is never a dead dash -->
         <section class="tile tile-github reveal" id="github-tile">
           <span class="tile-label" data-i18n="github.label">GitHub</span>
           <div class="gh-stats" id="gh-stats">
             <div class="gh-stat">
-              <strong id="gh-repos">—</strong>
+              <strong id="gh-repos">8</strong>
               <span data-i18n="github.repos">repos</span>
             </div>
             <div class="gh-stat">
-              <strong id="gh-stars">—</strong>
+              <strong id="gh-stars">0</strong>
               <span data-i18n="github.stars">stars</span>
             </div>
             <div class="gh-stat">
-              <strong id="gh-push">—</strong>
+              <strong id="gh-push">2026-11-01</strong>
               <span data-i18n="github.lastPush">last push</span>
             </div>
           </div>
+          <span class="gh-note" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
         </section>
 
         <!-- PROJECTS -->

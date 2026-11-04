@@ -1,6 +1,7 @@
 // render.ts — renders projects, shiplog, skills and links into the DOM.
+// v11: projects use an i18n key for the open link so the toggle re-translates them.
 import type { AppData } from "./types";
-import { getLang } from "./i18n.js";
+import { getLang, t } from "./i18n.js";
 
 export function renderProjects(data: AppData): void {
   const grid = document.getElementById("projects-grid");
@@ -52,7 +53,7 @@ export function renderProjects(data: AppData): void {
       link.href = p.url;
       link.target = "_blank";
       link.rel = "noopener";
-      link.textContent = "Open →";
+      link.textContent = t("projects.open");
       card.appendChild(link);
     }
 
