@@ -8,76 +8,40 @@ interface Dict {
 
 export const dict: Dict = {
   en: {
-    "nav.projects": "Projects",
-    "nav.shiplog": "Ship Log",
-    "nav.skills": "Skills",
-    "nav.links": "Links",
-    "hero.eyebrow": "<span class='crumb-prompt'>~</span><span class='crumb-sep'>/</span><span>about</span>",
-    "hero.quote":
-      "They call it impossible. I call it inevitable. Because an emperor's will cannot be denied.",
-    "hero.cta1": "See my work",
-    "hero.cta2": "Links",
-    "hero.share": "Share",
-    "status.label": "Currently building", 
+    "hero.eyebrow": "const jay = builder",
+    "hero.quote": "I build what others call impossible. Quietly, and with real numbers.",
+    "hero.cta1": "See the builds",
+    "hero.cta2": "Reach me",
     "status.live": "LIVE",
-    "buildon.label": "Built on",
-    "github.label": "GitHub",
     "github.repos": "repos",
     "github.stars": "stars",
     "github.lastPush": "last push",
     "github.asof": "as of 2026-11-04",
-    "projects.title": "Projects",
-    "projects.open": "Open →",
-    "shiplog.title": "Ship Log",
-    "skills.title": "Skills",
-    "links.title": "Links",
+    "projects.title": "Selected work",
+    "shiplog.title": "Ship log",
+    "skills.title": "Toolkit",
+    "links.title": "Reach",
     "footer.built": "Built on Android with Operit · Hosted on GitHub Pages",
     "palette.hint": "Type a command…",
     "palette.title": "Command palette",
-    "theme.name": "Forge",
-    "theme.title": "Theme",
-    "theme.cycle": "Change theme",
-    "type.name": "Bitter",
-    "type.title": "Type pairing",
-    "type.cycle": "Change type pairing",
-    "status.na": "No status",
-    "time.now": "now",
   },
   hi: {
-    "nav.projects": "प्रोजेक्ट्स",
-    "nav.shiplog": "शिप लॉग",
-    "nav.skills": "स्किल्स",
-    "nav.links": "लिंक्स",
-    "hero.eyebrow": "<span class='crumb-prompt'>~</span><span class='crumb-sep'>/</span><span>about</span>",
-    "hero.quote":
-      "वे इसे असंभव कहते हैं। मैं इसे अपरिहार्य कहता हूँ। क्योंकि सम्राट की इच्छा को नकारा नहीं जा सकता।",
-    "hero.cta1": "मेरा काम देखें",
-    "hero.cta2": "लिंक्स",
-    "hero.share": "शेयर",
-    "status.label": "अभी बना रहा हूँ", 
+    "hero.eyebrow": "const jay = builder",
+    "hero.quote": "मैं वही बनाता हूँ जिसे दूसरे असंभव कहते हैं। चुपचाप, असली आँकड़ों के साथ।",
+    "hero.cta1": "बिल्ड देखें",
+    "hero.cta2": "संपर्क करें",
     "status.live": "लाइव",
-    "buildon.label": "निर्मित पर",
-    "github.label": "GitHub",
     "github.repos": "रेपो",
     "github.stars": "स्टार्स",
     "github.lastPush": "आखिरी पुश",
     "github.asof": "2026-11-04 तक",
-    "projects.title": "प्रोजेक्ट्स",
-    "projects.open": "खोलें →",
+    "projects.title": "चुनिंदा काम",
     "shiplog.title": "शिप लॉग",
-    "skills.title": "स्किल्स",
-    "links.title": "लिंक्स",
+    "skills.title": "टूलकिट",
+    "links.title": "संपर्क",
     "footer.built": "Android पर Operit से निर्मित · GitHub Pages पर होस्ट",
     "palette.hint": "कमांड लिखें…",
     "palette.title": "कमांड पैलेट",
-    "theme.name": "फ़ोर्ज",
-    "theme.title": "थीम",
-    "theme.cycle": "थीम बदलें",
-    "type.name": "Bitter",
-    "type.title": "फ़ॉन्ट जोड़ी",
-    "type.cycle": "फ़ॉन्ट जोड़ी बदलें",
-    "status.na": "कोई स्थिति नहीं",
-    "time.now": "अभी",
   },
 };
 
@@ -111,7 +75,6 @@ export function applyLang(): void {
   document
     .querySelectorAll<HTMLElement>("[data-i18n], [data-i18n-html]")
     .forEach(applyElement);
-
   const toggle = document.getElementById("lang-toggle");
   if (toggle) {
     toggle.textContent = current === "en" ? "हिन्दी" : "English";
@@ -123,24 +86,22 @@ export function applyLang(): void {
 }
 
 export function initI18n(): void {
-  // If user had a saved language, use it.
   let saved: Lang = "en";
   try {
-    const s = localStorage.getItem("forege-lang");
+    const s = localStorage.getItem("forge-lang");
     if (s === "en" || s === "hi") saved = s;
   } catch {
     /* storage unavailable */
   }
   setLang(saved);
   applyLang();
-
   const toggle = document.getElementById("lang-toggle");
   if (toggle) {
     toggle.addEventListener("click", () => {
       setLang(current === "en" ? "hi" : "en");
       applyLang();
       try {
-        localStorage.setItem("forege-lang", current);
+        localStorage.setItem("forge-lang", current);
       } catch {
         /* ignore */
       }

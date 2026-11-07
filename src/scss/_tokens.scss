@@ -1,35 +1,36 @@
-// tokens.scss — the field-register palette and type scale.
-// Paper register: warm paper, warm ink, one vermillion accent used only for
-// live ticks. Ruled ledger lines carry structure, not decoration.
-
+// Forge Console — tokens (v13)
 :root {
-  /* ---- color: paper register ---- */
-  --c-paper: #f7f3ea;
-  --c-paper-2: #efe9db;
-  --c-ink: #1c1a17;
-  --c-ink-soft: #3a362f;
-  --c-stone: #6e675c;
-  --c-rule: #dcd4c4;
-  --c-rule-strong: #c2b8a4;
-  --c-accent: #c8391f; /* vermillion — live ticks only */
-  --c-accent-soft: #e8d5cb;
+  // canvas
+  --c-canvas: #0b0d0e;
+  --c-panel: #121518;
+  --c-panel-2: #171b1f;
+  // ink
+  --c-ink: #ece7df;
+  --c-ink-soft: #b9b2a8;
+  --c-faint: #8f969f;
+  --c-hairline: #23272c;
+  --c-hairline-strong: #343a42;
+  // accents
+  --c-accent: #ff7a3c;
+  --c-accent-soft: rgba(255, 122, 60, 0.12);
+  --c-ok: #43c08b;
 
-  /* ---- type ---- */
-  --font-display: "Bitter", Georgia, serif;
-  --font-body: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  // type
+  --font-display: "Azeret Mono", ui-monospace, monospace;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
   --font-hi: "Noto Sans Devanagari", var(--font-body);
 
-  /* type scale — 1.25 major third */
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.9rem;
-  --fs-base: 1rem;
-  --fs-md: 1.25rem;
-  --fs-lg: 1.563rem;
-  --fs-xl: 2.5rem;
-  --fs-2xl: 4.5rem; /* the hero name */
+  // scale
+  --fs-xs: 0.75rem;      // 12
+  --fs-sm: 0.8125rem;    // 13
+  --fs-base: 1rem;        // 16
+  --fs-md: 1.25rem;       // 20
+  --fs-lg: 1.75rem;       // 28
+  --fs-xl: 3.25rem;       // 52
+  --fs-2xl: 5rem;         // 80
 
-  /* ---- spacing (4px base) ---- */
+  // spacing
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
@@ -42,15 +43,14 @@
   --sp-16: 64px;
   --sp-20: 80px;
 
-  /* ---- radii (quiet, near-zero) ---- */
+  // geometry
   --r-xs: 2px;
   --r-sm: 4px;
+  --r-md: 8px;
 
-  /* ---- elevation: only a soft drop, no glow ---- */
-  --shadow-card: 0 1px 0 rgba(28, 26, 23, 0.06);
-
-  /* ---- layout ---- */
-  --gutter: clamp(1rem, 4vw, 2.5rem);
-  --content: 720px;
-  --measure: 60ch;
+  // layout
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --content: 860px;
+  --measure: 62ch;
+  --radius: 2px;
 }

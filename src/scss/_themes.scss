@@ -1,26 +1,6 @@
-// themes.scss — type pairs. Paper register keeps one family for display and
-// mono only for metadata. Hindi routes through Noto Sans Devanagari.
-
-[data-type="forge"] {
-  --font-display: "Bitter", Georgia, serif;
-  --font-body: "Instrument Sans", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
-}
-
-[data-type="sans"] {
-  --font-display: "Instrument Sans", system-ui, sans-serif;
-  --font-body: "Instrument Sans", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-}
-
-[data-type="serif"] {
-  --font-display: "Bitter", Georgia, serif;
-  --font-body: "Bitter", Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-}
-
-[data-type="typewriter"] {
-  --font-display: "JetBrains Mono", ui-monospace, monospace;
-  --font-body: "JetBrains Mono", ui-monospace, monospace;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+// Themes — the Forge Console ships one canonical theme (v13).
+// The previous multi-theme switcher is retired; this scope is deliberately
+// one confident, calm palette. Data attributes are kept for future extension.
+[data-theme="forge"] {
+  // identical to tokens — kept as an explicit stable theme
 }

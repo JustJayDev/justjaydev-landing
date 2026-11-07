@@ -1,4 +1,4 @@
-// base.scss — paper-register base.
+// Base reset + fundamentals
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,17 +19,17 @@ body {
   font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--c-ink);
-  background: var(--c-paper);
+  background: var(--c-canvas);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
+  font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--c-ink);
 }
 
@@ -37,6 +37,11 @@ a {
   color: var(--c-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--c-accent);
 }
 
 img {
@@ -50,24 +55,15 @@ img {
   border-radius: var(--r-xs);
 }
 
-.skip {
-  position: absolute;
-  left: -9999px;
-  top: 0;
+::selection {
   background: var(--c-accent);
-  color: var(--c-paper);
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  z-index: 999;
-  &:focus {
-    left: 8px;
-    top: 8px;
-  }
+  color: var(--c-canvas);
 }
 
-::selection {
-  background: var(--c-ink);
-  color: var(--c-paper);
+.mono {
+  font-family: var(--font-mono);
+}
+
+.faint {
+  color: var(--c-faint);
 }

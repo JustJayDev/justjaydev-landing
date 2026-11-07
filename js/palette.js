@@ -1,5 +1,4 @@
-import { cycleTheme, cycleTypePair } from "./theme-ui.js";
-// palette.ts — Ctrl+K command palette.
+// palette.ts — Ctrl+K command palette (jump-to-section).
 export function initPalette() {
     const trigger = document.getElementById("palette-trigger");
     const overlay = document.getElementById("palette-overlay");
@@ -33,41 +32,35 @@ export function initPalette() {
         if (e.target === overlay)
             close();
     });
+    const commands = [
+        { k: "work", label: "Jump to Work", target: "#work" },
+        { k: "stats", label: "GitHub stats", target: "#stats" },
+        { k: "ships", label: "Jump to Ship log", target: "#ships" },
+        { k: "reach", label: "Jump to Reach", target: "#reach" },
+        { k: "top", label: "Back to top", target: "#main" },
+    ];
     input.addEventListener("input", () => {
         const q = input.value.trim().toLowerCase();
         results.innerHTML = "";
-        const commands = [
-            { k: "projects", label: "Jump to Projects", target: "#projects" },
-            { k: "shiplog", label: "Jump to Ship Log", target: "#shiplog" },
-            { k: "skills", label: "Jump to Skills", target: "#skills" },
-            { k: "links", label: "Jump to Links", target: "#links" },
-            { k: "top", label: "Back to top", target: "#main" },
-            { k: "theme", label: "Theme: next", target: "", action: "theme" },
-            { k: "type", label: "Type pairing: next", target: "", action: "type" },
-        ];
-        const filtered = q ? commands.filter((c) => c.k.includes(q) || c.label.toLowerCase().includes(q)) : commands;
+        const filtered = q
+            ? commands.filter((c) => c.k.includes(q) || c.label.toLowerCase().includes(q))
+            : commands;
         filtered.slice(0, 8).forEach((c) => {
             const btn = document.createElement("button");
             btn.type = "button";
-            btn.className = "palette-item";
+            btn.className = "palette-result";
             btn.textContent = c.label;
             btn.addEventListener("click", () => {
                 close();
-                if (c.action === "theme")
-                    cycleTheme();
-                if (c.action === "type")
-                    cycleTypePair();
-                if (c.target) {
-                    const el = document.querySelector(c.target);
-                    if (el)
-                        el.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
+                const el = document.querySelector(c.target);
+                if (el)
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
             });
             results.appendChild(btn);
         });
         if (!filtered.length) {
             const empty = document.createElement("p");
-            empty.className = "palette-empty";
+            empty.className = "palette-result";
             empty.textContent = "No matches";
             results.appendChild(empty);
         }

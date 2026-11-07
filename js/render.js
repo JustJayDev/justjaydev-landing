@@ -1,6 +1,3 @@
-// render.ts — renders projects, shiplog, skills and links into the DOM.
-// v12: register markup — numbered project rows, chronological ship entries,
-// quiet skill list, link rows. No cards, no pills, no chips.
 import { getLang, t } from "./i18n.js";
 export function renderProjects(data) {
     const list = document.getElementById("projects-list");
@@ -9,36 +6,41 @@ export function renderProjects(data) {
     const projects = data.projects.filter((p) => p.status === "live");
     list.innerHTML = "";
     projects.forEach((p, i) => {
-        const row = document.createElement("article");
-        row.className = "project-row reveal";
+        const row = document.createElement("a");
+        row.className = "work-row reveal";
+        if (p.url) {
+            row.href = p.url;
+            row.target = "_blank";
+            row.rel = "noopener";
+        }
         row.setAttribute("tabindex", "0");
         const index = document.createElement("span");
-        index.className = "project-index";
+        index.className = "work-index";
         index.textContent = String(i + 1).padStart(2, "0");
         row.appendChild(index);
         const main = document.createElement("div");
-        main.className = "project-main";
+        main.className = "work-main";
         const nameRow = document.createElement("div");
-        nameRow.className = "project-name-row";
+        nameRow.className = "work-name-row";
         const name = document.createElement("h3");
-        name.className = "project-name";
+        name.className = "work-name";
         name.textContent = p.name;
         nameRow.appendChild(name);
         const badge = document.createElement("span");
-        badge.className = "project-status " + p.status;
+        badge.className = "work-status " + p.status;
         badge.textContent = p.status === "live" ? t("status.live") : "SOON";
         nameRow.appendChild(badge);
         main.appendChild(nameRow);
         const tag = document.createElement("span");
-        tag.className = "project-tag";
+        tag.className = "work-tag";
         tag.textContent = p.tag[getLang()];
         main.appendChild(tag);
         const desc = document.createElement("p");
-        desc.className = "project-desc";
+        desc.className = "work-desc";
         desc.textContent = p.desc[getLang()];
         main.appendChild(desc);
         const tech = document.createElement("div");
-        tech.className = "project-tech";
+        tech.className = "work-tech";
         p.tech.forEach((te) => {
             const span = document.createElement("span");
             span.textContent = te;
@@ -46,15 +48,6 @@ export function renderProjects(data) {
         });
         main.appendChild(tech);
         row.appendChild(main);
-        if (p.url) {
-            const link = document.createElement("a");
-            link.className = "project-link";
-            link.href = p.url;
-            link.target = "_blank";
-            link.rel = "noopener";
-            link.textContent = t("projects.open");
-            row.appendChild(link);
-        }
         list.appendChild(row);
     });
 }
@@ -106,7 +99,7 @@ export function renderSkills() {
     list.innerHTML = "";
     skills.forEach((s) => {
         const item = document.createElement("span");
-        item.className = "skill-item reveal";
+        item.className = "chip reveal";
         item.textContent = s;
         list.appendChild(item);
     });
@@ -119,17 +112,17 @@ export function renderLinks(data) {
     grid.innerHTML = "";
     links.forEach((l) => {
         const a = document.createElement("a");
-        a.className = "link-row reveal";
+        a.className = "reach-row reveal";
         a.href = l.url;
         a.target = "_blank";
         a.rel = "noopener";
         const label = document.createElement("span");
-        label.className = "link-label";
+        label.className = "reach-label";
         label.textContent = l.label[getLang()];
         a.appendChild(label);
         if (l.sub) {
             const sub = document.createElement("span");
-            sub.className = "link-sub";
+            sub.className = "reach-sub";
             sub.textContent = l.sub;
             a.appendChild(sub);
         }

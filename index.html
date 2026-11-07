@@ -1,64 +1,30 @@
 <!doctype html>
-<html lang="en" data-theme="forge" data-type="forge">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>JustJayDev · Forge Station</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>JustJayDev · Forge Console</title>
     <meta
       name="description"
-      content="Jay (JustJayDev): builder, developer, gamer. Verified live builds, ship log and links — built as a four-language pipeline."
+      content="Jay (JustJayDev) — builder, developer, gamer. A console of verified live builds, ship log, toolkit and reach."
     />
-    <meta name="theme-color" content="#f7f3ea" />
-    <meta
-      name="google-site-verification"
-      content="yxH_HOX5ByYovZ9krFg23hR9YTv7EMusiC01OondrV4"
-    />
-    <link
-      rel="canonical"
-      href="https://nightforgeio.github.io/justjaydev-landing/"
-    />
+    <meta name="theme-color" content="#0b0d0e" />
+    <link rel="canonical" href="https://nightforgeio.github.io/justjaydev-landing/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="hi_IN" />
-    <meta property="og:title" content="JustJayDev · Forge Station" />
-    <meta
-      property="og:description"
-      content="Builder, developer, gamer. Verified live builds, ship log and links."
-    />
-    <meta
-      property="og:url"
-      content="https://nightforgeio.github.io/justjaydev-landing/"
-    />
-    <meta
-      property="og:image"
-      content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg"
-    />
+    <meta property="og:title" content="JustJayDev · Forge Console" />
+    <meta property="og:description" content="Builder, developer, gamer. Verified live builds, ship log and links." />
+    <meta property="og:url" content="https://nightforgeio.github.io/justjaydev-landing/" />
+    <meta property="og:image" content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="JustJayDev — builder, developer, gamer"
-    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JustJayDev · Forge Station" />
-    <meta
-      name="twitter:description"
-      content="Builder, developer, gamer. Verified live builds, ship log and links."
-    />
-    <meta
-      name="twitter:image"
-      content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg"
-    />
+    <meta name="twitter:title" content="JustJayDev · Forge Console" />
+    <meta name="twitter:description" content="Builder, developer, gamer. Verified live builds, ship log and links." />
+    <meta name="twitter:image" content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/icon-512.png"
-    />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png" />
     <link rel="apple-touch-icon" href="assets/icon-512.png" />
     <link rel="manifest" href="manifest.json" />
     <script type="application/ld+json">
@@ -81,89 +47,33 @@
         });
       }
     </script>
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="fonts/bitter-800.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="fonts/instrument-sans-500.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="fonts/jetbrains-mono-var.woff2"
-      crossorigin
-    />
-    <script>
-      // Apply saved theme/type before first paint (no flash). Mirrors theme-ui.ts keys.
-      (function(){try{var t=localStorage.getItem("forge-theme"),y=localStorage.getItem("forge-type");if(t)document.documentElement.dataset.theme=t;if(y)document.documentElement.dataset.type=y;}catch(e){}})();
-    </script>
-    <link rel="stylesheet" href="css/main.css?v=12.0" />
+    <link rel="stylesheet" href="css/main.css?v=13.0" />
     <style>
       @font-face {
-        font-family: "Bitter";
-        src: url("fonts/bitter-400.woff2") format("woff2");
+        font-family: "Azeret Mono";
+        src: url("fonts/azeret-mono-400.woff2") format("woff2");
         font-weight: 400;
         font-display: swap;
       }
       @font-face {
-        font-family: "Bitter";
-        src: url("fonts/bitter-600.woff2") format("woff2");
-        font-weight: 600;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Bitter";
-        src: url("fonts/bitter-700.woff2") format("woff2");
-        font-weight: 700;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Bitter";
-        src: url("fonts/bitter-800.woff2") format("woff2");
-        font-weight: 800;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Bitter";
-        src: url("fonts/bitter-400-italic.woff2") format("woff2");
-        font-weight: 400;
-        font-style: italic;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Instrument Sans";
-        src: url("fonts/instrument-sans-400.woff2") format("woff2");
-        font-weight: 400;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Instrument Sans";
-        src: url("fonts/instrument-sans-500.woff2") format("woff2");
+        font-family: "Azeret Mono";
+        src: url("fonts/azeret-mono-500.woff2") format("woff2");
         font-weight: 500;
         font-display: swap;
       }
       @font-face {
-        font-family: "Instrument Sans";
-        src: url("fonts/instrument-sans-600.woff2") format("woff2");
+        font-family: "Azeret Mono";
+        src: url("fonts/azeret-mono-600.woff2") format("woff2");
         font-weight: 600;
         font-display: swap;
       }
       @font-face {
-        font-family: "Instrument Sans";
-        src: url("fonts/instrument-sans-700.woff2") format("woff2");
+        font-family: "Azeret Mono";
+        src: url("fonts/azeret-mono-700.woff2") format("woff2");
         font-weight: 700;
         font-display: swap;
       }
-      @font-face {
+@font-face {
         font-family: "JetBrains Mono";
         src: url("fonts/jetbrains-mono-var.woff2") format("woff2");
         font-weight: 100 800;
@@ -180,206 +90,129 @@
   <body>
     <a class="skip" href="#main">Skip to content</a>
 
-    <header class="topbar">
-      <nav class="nav" aria-label="Sections">
-        <a class="nav-brand" href="#main">~/justjaydev</a>
-        <div class="nav-actions">
-          <button
-            class="lang-btn"
-            id="lang-toggle"
-            type="button"
-            aria-label="Switch language"
-          >
-            हिन्दी
-          </button>
-          <button
-            class="lang-btn"
-            id="type-toggle"
-            type="button"
-            aria-label="Change type pairing"
-            title="Type pairing"
-          >
-            <span data-type-label>Ui 1 / Bitter</span>
-          </button>
-          <button
-            class="lang-btn"
-            id="palette-trigger"
-            type="button"
-            aria-label="Command palette"
-            title="Ctrl+K"
-          >
-            ⌘K
-          </button>
+    <!-- STATUS BAR -->
+    <header class="statusbar">
+      <nav class="statusbar-inner" aria-label="Primary">
+        <a class="brand" href="#main">
+          <span class="brand-dot" aria-hidden="true"></span>~/justjaydev
+        </a>
+        <div class="statusbar-actions">
+          <button class="ctl" id="lang-toggle" type="button" aria-label="Switch language">हिन्दी</button>
+          <button class="ctl" id="palette-trigger" type="button" aria-label="Command palette" title="Ctrl+K">⌘K</button>
         </div>
       </nav>
     </header>
 
-    <main id="main" class="shell">
-      <!-- HERO — the one memorable element: the giant serif name on paper -->
-      <section class="hero" id="hero">
-        <p class="hero-eyebrow" data-i18n-html="hero.eyebrow"></p>
-        <div class="hero-name-row">
-          <img
-            class="hero-avatar"
-            src="assets/jay.webp"
-            alt=""
-            width="56"
-            height="56"
-            loading="eager"
-          />
-          <h1 class="hero-name scramble" data-text="Jay">Jay</h1>
-        </div>
-        <p class="hero-handle">@JustJayDev</p>
-        <p class="hero-quote" data-i18n="hero.quote">
-          They call it impossible. I call it inevitable. Because an
-          emperor's will cannot be denied.
+    <main id="main">
+      <!-- CONSOLE / HERO -->
+      <section class="console" id="top">
+        <div class="console-eyebrow mono" data-i18n="hero.eyebrow">const jay = builder</div>
+        <h1 class="console-name" id="name">JAY<span class="caret" aria-hidden="true"></span></h1>
+        <p class="console-role">developer / gamer / ship-it</p>
+        <p class="console-quote" data-i18n="hero.quote">
+          I build what others call impossible. Quietly, and with real numbers.
         </p>
-        <div class="hero-meta">
-          <span class="hero-clock" id="hero-clock"></span>
+        <div class="console-readout">
+          <span class="readout-tick" aria-hidden="true"></span>
+          <span class="mono" id="status-text">Loading…</span>
+          <span class="mono faint" id="status-date"></span>
         </div>
-        <div class="hero-cta">
-          <a class="btn btn--primary" href="#projects" data-i18n="hero.cta1"
-            >See my work</a
-          >
-          <a class="btn" href="#links" data-i18n="hero.cta2">Links</a>
-          <button
-            class="btn"
-            id="share-btn"
-            type="button"
-            hidden
-            data-i18n="hero.share"
-          >
-            Share
-          </button>
+        <div class="console-cta">
+          <a class="btn btn--primary" href="#work" data-i18n="hero.cta1">See the builds</a>
+          <a class="btn" href="#reach" data-i18n="hero.cta2">Reach me</a>
         </div>
       </section>
 
-      <!-- STATUS — a register line -->
-      <section class="status" id="status-tile">
-        <span class="live-tick" aria-hidden="true"></span>
-        <span class="status-text" id="status-text">Loading…</span>
-        <span class="status-updated" id="status-date"></span>
-      </section>
-
-      <!-- BUILT ON -->
-      <section class="buildon" id="buildon-tile">
-        <p class="buildon-line">html + scss + ts + python <span class="ok">✓</span></p>
-        <p class="buildon-line">build --target=production <span class="ok">✓</span></p>
-        <p class="buildon-line">deploy --platform=github-pages <span class="ok">✓</span></p>
-      </section>
-
-      <!-- GITHUB STATS -->
-      <section class="gh" id="github-tile">
-        <div class="gh-row" id="gh-stats">
-          <div class="gh-stat">
-            <div class="gh-num" id="gh-repos">8</div>
-            <span class="gh-label" data-i18n="github.repos">repos</span>
-          </div>
-          <div class="gh-stat">
-            <div class="gh-num" id="gh-stars">0</div>
-            <span class="gh-label" data-i18n="github.stars">stars</span>
-          </div>
-          <div class="gh-stat">
-            <div class="gh-num" id="gh-push">2026-11-01</div>
-            <span class="gh-label" data-i18n="github.lastPush">last push</span>
-          </div>
-        </div>
-        <span class="gh-note" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
-      </section>
-
-      <!-- PROJECTS — numbered register -->
-      <section class="register" id="projects">
-        <h2 class="section-title">
-          <span class="section-index">01</span>
-          <span data-i18n="projects.title">Projects</span>
-        </h2>
-        <div id="projects-list">
+      <!-- TOOLKIT STRIP -->
+      <section class="panel">
+        <div class="panel-label mono">toolkit</div>
+        <div class="chips" id="skills-list">
           <!-- rendered by render.ts -->
         </div>
       </section>
 
-      <!-- SHIP LOG — chronological register -->
-      <section class="register" id="shiplog">
-        <h2 class="section-title">
-          <span class="section-index">02</span>
-          <span data-i18n="shiplog.title">Ship Log</span>
-        </h2>
-        <div id="shiplog-list">
+      <!-- WORK — rows, not cards -->
+      <section class="panel" id="work">
+        <div class="panel-head">
+          <h2 class="panel-title mono"><span class="panel-num">01</span>Selected work</h2>
+          <span class="mono faint" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
+        </div>
+        <div class="work-list" id="projects-list">
           <!-- rendered by render.ts -->
         </div>
       </section>
 
-      <!-- SKILLS -->
-      <section class="register" id="skills">
-        <h2 class="section-title">
-          <span class="section-index">03</span>
-          <span data-i18n="skills.title">Skills</span>
-        </h2>
-        <div class="skill-list" id="skills-list">
+      <!-- GITHUB READOUT -->
+      <section class="panel" id="stats">
+        <div class="panel-head">
+          <h2 class="panel-title mono"><span class="panel-num">02</span>GitHub</h2>
+        </div>
+        <div class="stat-grid" id="gh-stats">
+          <div class="stat">
+            <div class="stat-num mono" id="gh-repos">8</div>
+            <span class="stat-label mono faint" data-i18n="github.repos">repos</span>
+          </div>
+          <div class="stat">
+            <div class="stat-num mono" id="gh-stars">0</div>
+            <span class="stat-label mono faint" data-i18n="github.stars">stars</span>
+          </div>
+          <div class="stat">
+            <div class="stat-num mono" id="gh-push">2026-11-01</div>
+            <span class="stat-label mono faint" data-i18n="github.lastPush">last push</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHIP LOG -->
+      <section class="panel" id="ships">
+        <div class="panel-head">
+          <h2 class="panel-title mono"><span class="panel-num">03</span>Ship log</h2>
+        </div>
+        <div class="ship-list" id="shiplog-list">
           <!-- rendered by render.ts -->
         </div>
       </section>
 
-      <!-- LINKS -->
-      <section class="register" id="links">
-        <h2 class="section-title">
-          <span class="section-index">04</span>
-          <span data-i18n="links.title">Links</span>
-        </h2>
-        <div id="links-list">
+      <!-- REACH -->
+      <section class="panel" id="reach">
+        <div class="panel-head">
+          <h2 class="panel-title mono"><span class="panel-num">04</span>Reach</h2>
+        </div>
+        <div class="reach-list" id="links-list">
           <!-- rendered by render.ts -->
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="footer-inner shell">
+      <div class="footer-inner">
         <p>© <span id="year">2026</span> Jay · @JustJayDev</p>
-        <p class="build-info" data-i18n="footer.built">
-          Built on Android with Operit · Hosted on GitHub Pages
-        </p>
+        <p class="mono faint" data-i18n="footer.built">Built on Android with Operit · Hosted on GitHub Pages</p>
       </div>
     </footer>
 
-    <!-- MOBILE BOTTOM NAV -->
-    <nav class="bottom-nav" aria-label="Mobile navigation">
-      <a href="#hero">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#shiplog">Ship Log</a>
-      <a href="#links">Links</a>
+    <nav class="bottom-nav" aria-label="Mobile">
+      <a href="#top">Home</a>
+      <a href="#work">Work</a>
+      <a href="#ships">Ships</a>
+      <a href="#reach">Reach</a>
     </nav>
 
-    <!-- COMMAND PALETTE -->
-    <div
-      class="palette-overlay"
-      id="palette-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Command palette"
-    >
+    <div class="palette-overlay" id="palette-overlay" role="dialog" aria-modal="true" aria-label="Command palette">
       <div class="palette">
-        <input
-          type="text"
-          id="palette-input"
-          placeholder="Type a command…"
-          autocomplete="off"
-        />
+        <input type="text" id="palette-input" placeholder="Type a command…" autocomplete="off" />
         <div class="palette-results" id="palette-results"></div>
       </div>
     </div>
 
     <noscript>
       <style>
-        .reveal {
-          opacity: 1;
-          transform: none;
-        }
+        .reveal { opacity: 1; transform: none; }
       </style>
-      <p style="text-align: center; padding: 20px; color: #c8391f">
-        This site works best with JavaScript enabled.
+      <p style="text-align:center;padding:20px;color:#ff7a3c">
+        This console works best with JavaScript enabled.
       </p>
     </noscript>
-
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
