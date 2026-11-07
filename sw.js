@@ -1,6 +1,6 @@
-// Service Worker — v11 "Forge Station" (cache jj-v16).
+// Service Worker — v13 "Forge Console" (cache jj-v17).
 // Network-first for data JSON, cache-first for static assets.
-var CACHE = "jj-v16";
+var CACHE = "jj-v17";
 var STATIC = [
   "./",
   "./index.html",
@@ -19,10 +19,13 @@ var STATIC = [
   "./data/links.json",
   "./data/shiplog.json",
   "./data/status.json",
-  "./fonts/space-grotesk-var.woff2",
+  "./fonts/azeret-mono-400.woff2",
+  "./fonts/azeret-mono-500.woff2",
+  "./fonts/azeret-mono-600.woff2",
+  "./fonts/azeret-mono-700.woff2",
   "./fonts/jetbrains-mono-var.woff2",
   "./fonts/noto-sans-devanagari.woff2",
-  "./assets/jay.webp",
+  "./assets/share.jpg",
   "./assets/icon-32.png",
   "./assets/icon-512.png",
   "./manifest.json",
