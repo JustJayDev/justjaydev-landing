@@ -1,46 +1,33 @@
-// TOKENS — the single source of truth for the design system.
-// Every value is a decision; components derive from these only.
-// v11 "Engineering Ledger": dim text lightened to pass WCAG AA
-// (old #5d6584 measured 3.51:1 on --c-bg; new #8a93b2 measures 6.61:1).
+// tokens.scss — the field-register palette and type scale.
+// Paper register: warm paper, warm ink, one vermillion accent used only for
+// live ticks. Ruled ledger lines carry structure, not decoration.
 
 :root {
-  /* ---- color: Forge identity (keeping the brand) ---- */
-  --c-bg: #06070d;
-  --c-paper: #090a10;
-  --c-surface: #0d1018;
-  --c-surface-2: #121625;
-  --c-surface-3: #1a1f33;
-  --c-border: rgba(255, 255, 255, 0.08);
-  --c-border-strong: rgba(255, 255, 255, 0.18);
-  --c-text: #eef1fa;
-  --c-text-muted: #9aa3c0;
-  --c-text-dim: #8a93b2; /* was #5d6584 (3.51:1, failed AA) — now 6.61:1 */
-  --c-accent: #c6ff3d; /* electric lime — the forge */
-  --c-accent-cool: #3de8ff; /* cyan — secondary */
-  --c-accent-hot: #ff3dcb; /* magenta — rare, sparingly */
-  --c-accent-bg: rgba(198, 255, 61, 0.07);
-  --c-cool-bg: rgba(61, 232, 255, 0.06);
-  --c-ink: #000;
-  --c-accent-hover: #d4ff6e;
-  --c-bar: rgba(6, 7, 13, 0.82);
-  --c-bar-strong: rgba(6, 7, 13, 0.94);
-  --c-overlay: rgba(0, 0, 0, 0.6);
-  --c-grid: rgba(255, 255, 255, 0.025);
-  --c-hero-from: #ffffff;
+  /* ---- color: paper register ---- */
+  --c-paper: #f7f3ea;
+  --c-paper-2: #efe9db;
+  --c-ink: #1c1a17;
+  --c-ink-soft: #3a362f;
+  --c-stone: #6e675c;
+  --c-rule: #dcd4c4;
+  --c-rule-strong: #c2b8a4;
+  --c-accent: #c8391f; /* vermillion — live ticks only */
+  --c-accent-soft: #e8d5cb;
 
   /* ---- type ---- */
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Bitter", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
   --font-hi: "Noto Sans Devanagari", var(--font-body);
-  /* type scale — 1.25 (major third) */
-  --fs-xs: 0.75rem; /* 12px */
-  --fs-sm: 0.875rem; /* 14px */
-  --fs-base: 1rem; /* 16px */
-  --fs-md: 1.25rem; /* 20px */
-  --fs-lg: 1.563rem; /* 25px */
-  --fs-xl: 2.5rem; /* 40px */
-  --fs-2xl: 4.25rem; /* 68px — display */
+
+  /* type scale — 1.25 major third */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.563rem;
+  --fs-xl: 2.5rem;
+  --fs-2xl: 4.5rem; /* the hero name */
 
   /* ---- spacing (4px base) ---- */
   --sp-1: 4px;
@@ -54,28 +41,16 @@
   --sp-12: 48px;
   --sp-16: 64px;
   --sp-20: 80px;
-  --sp-24: 96px;
 
-  /* ---- radii ---- */
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 22px;
-  --r-full: 999px;
+  /* ---- radii (quiet, near-zero) ---- */
+  --r-xs: 2px;
+  --r-sm: 4px;
 
-  /* ---- shadows ---- */
-  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 40px rgba(198, 255, 61, 0.1);
-  --shadow-lift: 0 16px 48px rgba(0, 0, 0, 0.55);
+  /* ---- elevation: only a soft drop, no glow ---- */
+  --shadow-card: 0 1px 0 rgba(28, 26, 23, 0.06);
 
   /* ---- layout ---- */
-  --content-max: 1160px;
-  --gutter: clamp(16px, 4vw, 48px);
-  --header-h: 60px;
-  --grid-gap: 16px;
-
-  /* ---- motion ---- */
-  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --dur-fast: 150ms;
-  --dur-mid: 300ms;
-  --dur-slow: 600ms;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --content: 720px;
+  --measure: 60ch;
 }

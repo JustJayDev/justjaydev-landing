@@ -1,3 +1,4 @@
+// base.scss — paper-register base.
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,8 +18,8 @@ body {
   font-family: var(--font-body);
   font-size: var(--fs-base);
   line-height: 1.6;
-  color: var(--c-text);
-  background: var(--c-bg);
+  color: var(--c-ink);
+  background: var(--c-paper);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   min-height: 100vh;
@@ -26,17 +27,16 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   font-weight: 700;
+  color: var(--c-ink);
 }
 
 a {
-  color: var(--c-accent-cool);
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  color: var(--c-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 img {
@@ -44,15 +44,10 @@ img {
   display: block;
 }
 
-::selection {
-  background: var(--c-accent);
-  color: var(--c-ink);
-}
-
 :focus-visible {
   outline: 2px solid var(--c-accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
 }
 
 .skip {
@@ -60,7 +55,7 @@ img {
   left: -9999px;
   top: 0;
   background: var(--c-accent);
-  color: var(--c-ink);
+  color: var(--c-paper);
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -72,12 +67,7 @@ img {
   }
 }
 
-.term-line {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  color: var(--c-text-muted);
-  .ok {
-    color: var(--c-accent);
-    margin-left: 0.25rem;
-  }
+::selection {
+  background: var(--c-ink);
+  color: var(--c-paper);
 }

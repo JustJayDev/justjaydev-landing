@@ -1,51 +1,59 @@
 // render.ts — renders projects, shiplog, skills and links into the DOM.
-// v11: projects use an i18n key for the open link so the toggle re-translates them.
+// v12: register markup — numbered project rows, chronological ship entries,
+// quiet skill list, link rows. No cards, no pills, no chips.
+
 import type { AppData } from "./types";
 import { getLang, t } from "./i18n.js";
 
 export function renderProjects(data: AppData): void {
-  const grid = document.getElementById("projects-grid");
-  if (!grid) return;
+  const list = document.getElementById("projects-list");
+  if (!list) return;
   const projects = data.projects.filter((p) => p.status === "live");
-  grid.innerHTML = "";
-  projects.forEach((p) => {
-    const card = document.createElement("article");
-    card.className = "project-card reveal";
-    card.setAttribute("tabindex", "0");
+  list.innerHTML = "";
+  projects.forEach((p, i) => {
+    const row = document.createElement("article");
+    row.className = "project-row reveal";
+    row.setAttribute("tabindex", "0");
 
-    const head = document.createElement("div");
-    head.className = "project-head";
+    const index = document.createElement("span");
+    index.className = "project-index";
+    index.textContent = String(i + 1).padStart(2, "0");
+    row.appendChild(index);
 
+    const main = document.createElement("div");
+    main.className = "project-main";
+
+    const nameRow = document.createElement("div");
+    nameRow.className = "project-name-row";
     const name = document.createElement("h3");
     name.className = "project-name";
     name.textContent = p.name;
-    head.appendChild(name);
-
+    nameRow.appendChild(name);
     const badge = document.createElement("span");
-    badge.className = "project-status badge " + p.status;
-    badge.textContent = p.status === "live" ? "LIVE" : "SOON";
-    head.appendChild(badge);
-    card.appendChild(head);
+    badge.className = "project-status " + p.status;
+    badge.textContent = p.status === "live" ? t("status.live") : "SOON";
+    nameRow.appendChild(badge);
+    main.appendChild(nameRow);
 
     const tag = document.createElement("span");
     tag.className = "project-tag";
     tag.textContent = p.tag[getLang()];
-    card.appendChild(tag);
+    main.appendChild(tag);
 
     const desc = document.createElement("p");
     desc.className = "project-desc";
     desc.textContent = p.desc[getLang()];
-    card.appendChild(desc);
+    main.appendChild(desc);
 
     const tech = document.createElement("div");
     tech.className = "project-tech";
     p.tech.forEach((te) => {
-      const chip = document.createElement("span");
-      chip.className = "chip";
-      chip.textContent = te;
-      tech.appendChild(chip);
+      const span = document.createElement("span");
+      span.textContent = te;
+      tech.appendChild(span);
     });
-    card.appendChild(tech);
+    main.appendChild(tech);
+    row.appendChild(main);
 
     if (p.url) {
       const link = document.createElement("a");
@@ -54,10 +62,10 @@ export function renderProjects(data: AppData): void {
       link.target = "_blank";
       link.rel = "noopener";
       link.textContent = t("projects.open");
-      card.appendChild(link);
+      row.appendChild(link);
     }
 
-    grid.appendChild(card);
+    list.appendChild(row);
   });
 }
 
@@ -68,31 +76,25 @@ export function renderShipLog(data: AppData): void {
   data.shiplog.forEach((entry) => {
     const item = document.createElement("article");
     item.className = "ship-entry reveal";
-
     const date = document.createElement("time");
     date.className = "ship-date";
     date.dateTime = entry.date;
     date.textContent = entry.date.replace(/-/g, ".");
     item.appendChild(date);
-
     const body = document.createElement("div");
     body.className = "ship-body";
-
     const title = document.createElement("h3");
     title.className = "ship-title";
     title.textContent = entry.title;
     body.appendChild(title);
-
     const desc = document.createElement("p");
     desc.className = "ship-desc";
     desc.textContent = entry.desc[getLang()];
     body.appendChild(desc);
-
     const tag = document.createElement("span");
-    tag.className = "chip ship-tag";
+    tag.className = "ship-tag";
     tag.textContent = entry.tag;
     body.appendChild(tag);
-
     item.appendChild(body);
     list.appendChild(item);
   });
@@ -112,23 +114,22 @@ export function renderSkills(): void {
     "Android automation",
   ];
   list.innerHTML = "";
-  skills.forEach((s, i) => {
+  skills.forEach((s) => {
     const item = document.createElement("span");
-    item.className = "skill-pill reveal";
-    item.style.setProperty("--i", String(i));
+    item.className = "skill-item reveal";
     item.textContent = s;
     list.appendChild(item);
   });
 }
 
 export function renderLinks(data: AppData): void {
-  const grid = document.getElementById("links-grid");
+  const grid = document.getElementById("links-list");
   if (!grid) return;
   const links = data.links.filter((l) => !l.placeholder && l.url);
   grid.innerHTML = "";
   links.forEach((l) => {
     const a = document.createElement("a");
-    a.className = "link-tile reveal";
+    a.className = "link-row reveal";
     a.href = l.url as string;
     a.target = "_blank";
     a.rel = "noopener";

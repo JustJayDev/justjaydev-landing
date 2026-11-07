@@ -1,124 +1,111 @@
+// layout.scss — single-column register layout, left aligned, ruled gutter.
+
 .shell {
-  max-width: var(--content-max);
-  margin: 0 auto;
+  max-width: var(--content);
+  margin-inline: auto;
   padding-inline: var(--gutter);
 }
 
+/* Top bar — a ruled masthead */
 .topbar {
+  border-bottom: 1px solid var(--c-rule);
+  background: var(--c-paper);
   position: sticky;
   top: 0;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  height: var(--header-h);
-  padding-inline: var(--gutter);
-  background: var(--c-bar);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--c-border);
-
-  .brand {
-    font-family: var(--font-mono);
-    font-size: var(--fs-sm);
-    color: var(--c-accent);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding-inline: var(--sp-3);
-    margin-inline: calc(-1 * var(--sp-3));
-  }
-
   .nav {
+    max-width: var(--content);
+    margin-inline: auto;
+    padding: var(--sp-3) var(--gutter);
     display: flex;
-    gap: var(--sp-5);
-    a {
-      color: var(--c-text-muted);
-      font-size: var(--fs-sm);
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      &:hover {
-        color: var(--c-text);
-      }
-    }
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
   }
-
-  .lang-btn {
-    background: var(--c-surface-2);
-    border: 1px solid var(--c-border-strong);
-    color: var(--c-text);
+  .nav-brand {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
+    letter-spacing: 0.06em;
+    color: var(--c-ink);
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  .nav-actions {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--r-full);
+    gap: var(--sp-2);
+  }
+  .lang-btn {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-stone);
+    background: none;
+    border: 1px solid var(--c-rule-strong);
+    border-radius: var(--r-xs);
+    padding: 0.35rem 0.6rem;
     cursor: pointer;
-    transition: border-color var(--dur-fast) var(--ease-out);
     &:hover {
-      border-color: var(--c-accent);
+      border-color: var(--c-ink);
+      color: var(--c-ink);
     }
   }
 }
 
+/* Footer — terminal rule */
+.footer {
+  border-top: 1px solid var(--c-rule);
+  margin-top: var(--sp-16);
+  .footer-inner {
+    padding-block: var(--sp-8);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-8);
+    justify-content: space-between;
+    font-size: var(--fs-sm);
+    color: var(--c-stone);
+  }
+  .build-info {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+  }
+}
+
+/* Mobile bottom nav — quiet, plain anchors */
 .bottom-nav {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 56px;
-  display: flex;
-  align-items: center;
+  background: var(--c-paper);
+  border-top: 1px solid var(--c-rule);
+  padding: var(--sp-2) var(--sp-6);
   justify-content: space-around;
-  background: var(--c-bar-strong);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid var(--c-border);
-  z-index: 50;
+  z-index: 60;
   a {
-    color: var(--c-text-muted);
-    font-size: 1.25rem;
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.25rem;
-    &:hover {
-      color: var(--c-accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-stone);
+    text-decoration: none;
+    padding: var(--sp-2);
+    &:hover, &:focus {
+      color: var(--c-ink);
     }
   }
 }
 
-.footer {
-  padding: var(--sp-8) var(--gutter) calc(var(--sp-8) + 64px);
-  border-top: 1px solid var(--c-border);
-  text-align: center;
-  color: var(--c-text-dim);
+.to-top {
+  font-family: var(--font-mono);
   font-size: var(--fs-sm);
-  .build-info {
-    margin-top: var(--sp-2);
-  }
+  color: var(--c-stone);
+  text-decoration: none;
 }
 
-@media (min-width: 720px) {
+@media (max-width: 639px) {
   .bottom-nav {
-    display: none;
+    display: flex;
   }
   .footer {
-    padding-bottom: var(--sp-8);
-  }
-}
-
-@media (max-width: 719px) {
-  .topbar .nav {
-    display: none;
+    padding-bottom: 56px;
   }
 }

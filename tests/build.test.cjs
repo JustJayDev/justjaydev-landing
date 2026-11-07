@@ -23,7 +23,8 @@ if (fs.existsSync(cssPath)) {
   const css = fs.readFileSync(cssPath, "utf8");
   assert(css.length > 1000, "css/main.css has content (>1KB)");
   assert(css.includes("--c-accent"), "tokens present in compiled css");
-  assert(css.includes(".project-card"), "project-card styles compiled");
+  assert(css.includes(".project-row"), "project register rows compiled");
+  assert(css.includes(".ship-entry"), "ship log entries compiled");
   assert(css.includes("prefers-reduced-motion"), "reduced-motion block present");
 }
 

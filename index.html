@@ -11,7 +11,7 @@
       name="description"
       content="Jay (JustJayDev): builder, developer, gamer. Verified live builds, ship log and links — built as a four-language pipeline."
     />
-    <meta name="theme-color" content="#06070d" />
+    <meta name="theme-color" content="#f7f3ea" />
     <meta
       name="google-site-verification"
       content="yxH_HOX5ByYovZ9krFg23hR9YTv7EMusiC01OondrV4"
@@ -59,32 +59,40 @@
       sizes="512x512"
       href="assets/icon-512.png"
     />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" href="assets/icon-512.png" />
     <link rel="manifest" href="manifest.json" />
-    <meta name="robots" content="index, follow" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Jay",
-        "alternateName": "JustJayDev",
+        "name": "Jay (JustJayDev)",
         "url": "https://nightforgeio.github.io/justjaydev-landing/",
-        "image": "https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg",
-        "jobTitle": "Builder, Developer, Gamer"
+        "jobTitle": "Builder · Developer · Gamer",
+        "sameAs": [
+          "https://github.com/JustJayDev",
+          "https://www.youtube.com/@kaizenff.official"
+        ]
       }
     </script>
     <script>
-      document.documentElement.classList.add("js");
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch(() => {});
+        });
+      }
     </script>
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="fonts/space-grotesk-var.woff2"
+      href="fonts/bitter-800.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/instrument-sans-500.woff2"
       crossorigin
     />
     <link
@@ -98,12 +106,61 @@
       // Apply saved theme/type before first paint (no flash). Mirrors theme-ui.ts keys.
       (function(){try{var t=localStorage.getItem("forge-theme"),y=localStorage.getItem("forge-type");if(t)document.documentElement.dataset.theme=t;if(y)document.documentElement.dataset.type=y;}catch(e){}})();
     </script>
-    <link rel="stylesheet" href="css/main.css?v=11.1" />
+    <link rel="stylesheet" href="css/main.css?v=12.0" />
     <style>
       @font-face {
-        font-family: "Space Grotesk";
-        src: url("fonts/space-grotesk-var.woff2") format("woff2");
-        font-weight: 300 700;
+        font-family: "Bitter";
+        src: url("fonts/bitter-400.woff2") format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Bitter";
+        src: url("fonts/bitter-600.woff2") format("woff2");
+        font-weight: 600;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Bitter";
+        src: url("fonts/bitter-700.woff2") format("woff2");
+        font-weight: 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Bitter";
+        src: url("fonts/bitter-800.woff2") format("woff2");
+        font-weight: 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Bitter";
+        src: url("fonts/bitter-400-italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("fonts/instrument-sans-400.woff2") format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("fonts/instrument-sans-500.woff2") format("woff2");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("fonts/instrument-sans-600.woff2") format("woff2");
+        font-weight: 600;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("fonts/instrument-sans-700.woff2") format("woff2");
+        font-weight: 700;
         font-display: swap;
       }
       @font-face {
@@ -112,19 +169,6 @@
         font-weight: 100 800;
         font-display: swap;
       }
-      @font-face { font-family: "Azeret Mono"; src: url("fonts/azeret-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-      @font-face { font-family: "Azeret Mono"; src: url("fonts/azeret-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-      @font-face { font-family: "Azeret Mono"; src: url("fonts/azeret-mono-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-      @font-face { font-family: "Azeret Mono"; src: url("fonts/azeret-mono-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-      @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-      @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
-      @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-      @font-face { font-family: "Instrument Sans"; src: url("fonts/instrument-sans-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-      @font-face { font-family: "Bitter"; src: url("fonts/bitter-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-      @font-face { font-family: "Bitter"; src: url("fonts/bitter-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-      @font-face { font-family: "Bitter"; src: url("fonts/bitter-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
-      @font-face { font-family: "Bitter"; src: url("fonts/bitter-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-      @font-face { font-family: "Bitter"; src: url("fonts/bitter-800.woff2") format("woff2"); font-weight: 800; font-display: swap; }
       @font-face {
         font-family: "Noto Sans Devanagari";
         src: url("fonts/noto-sans-devanagari.woff2") format("woff2");
@@ -137,219 +181,156 @@
     <a class="skip" href="#main">Skip to content</a>
 
     <header class="topbar">
-      <a class="brand" href="#main">~/justjaydev</a>
       <nav class="nav" aria-label="Sections">
-        <a href="#projects" data-i18n="nav.projects">Projects</a>
-        <a href="#shiplog" data-i18n="nav.shiplog">Ship Log</a>
-        <a href="#skills" data-i18n="nav.skills">Skills</a>
-        <a href="#links" data-i18n="nav.links">Links</a>
+        <a class="nav-brand" href="#main">~/justjaydev</a>
+        <div class="nav-actions">
+          <button
+            class="lang-btn"
+            id="lang-toggle"
+            type="button"
+            aria-label="Switch language"
+          >
+            हिन्दी
+          </button>
+          <button
+            class="lang-btn"
+            id="type-toggle"
+            type="button"
+            aria-label="Change type pairing"
+            title="Type pairing"
+          >
+            <span data-type-label>Ui 1 / Bitter</span>
+          </button>
+          <button
+            class="lang-btn"
+            id="palette-trigger"
+            type="button"
+            aria-label="Command palette"
+            title="Ctrl+K"
+          >
+            ⌘K
+          </button>
+        </div>
       </nav>
-      <div style="display: flex; gap: var(--sp-2); align-items: center">
-        <button
-          class="lang-btn"
-          id="lang-toggle"
-          type="button"
-          aria-label="Switch language"
-        >
-          हिन्दी
-        </button>
-        <button
-          class="lang-btn"
-          id="theme-toggle"
-          type="button"
-          aria-label="Change theme"
-          title="Theme"
-        >
-          <span data-theme-label>Ui 1 / Forge</span>
-        </button>
-        <button
-          class="lang-btn"
-          id="type-toggle"
-          type="button"
-          aria-label="Change type pairing"
-          title="Type pairing"
-        >
-          <span data-type-label>Ui 1 / Space Grotesk</span>
-        </button>
-        <button
-          class="lang-btn"
-          id="palette-trigger"
-          type="button"
-          aria-label="Command palette"
-          title="Ctrl+K"
-        >
-          ⌘K
-        </button>
-      </div>
     </header>
 
     <main id="main" class="shell">
-      <div class="bento">
-        <!-- HERO: asymmetric split — identity left, forge terminal right -->
-        <section class="tile tile-hero reveal" id="hero">
-          <canvas id="network-canvas" aria-hidden="true"></canvas>
-          <div class="hero-content">
-            <img
-              class="hero-avatar"
-              src="assets/jay.webp"
-              alt="Jay (JustJayDev)"
-              width="88"
-              height="88"
-              loading="eager"
-            />
-            <p class="hero-eyebrow" data-i18n="hero.eyebrow">
-              Builder · Developer · Gamer
-            </p>
-            <h1 class="hero-name scramble" data-text="Jay">Jay</h1>
-            <p class="hero-handle">@JustJayDev</p>
-            <p class="hero-quote" data-i18n="hero.quote">
-              They call it impossible. I call it inevitable. Because an
-              emperor's will cannot be denied.
-            </p>
-            <p class="hero-clock" id="hero-clock"></p>
-            <div class="hero-cta">
-              <a class="btn btn--primary" href="#projects" data-i18n="hero.cta1"
-                >See my work</a
-              >
-              <a class="btn" href="#links" data-i18n="hero.cta2">Links</a>
-              <button
-                class="btn"
-                id="share-btn"
-                type="button"
-                hidden
-                data-i18n="hero.share"
-              >
-                Share
-              </button>
-            </div>
-          </div>
+      <!-- HERO — the one memorable element: the giant serif name on paper -->
+      <section class="hero" id="hero">
+        <p class="hero-eyebrow" data-i18n-html="hero.eyebrow"></p>
+        <div class="hero-name-row">
+          <img
+            class="hero-avatar"
+            src="assets/jay.webp"
+            alt=""
+            width="56"
+            height="56"
+            loading="eager"
+          />
+          <h1 class="hero-name scramble" data-text="Jay">Jay</h1>
+        </div>
+        <p class="hero-handle">@JustJayDev</p>
+        <p class="hero-quote" data-i18n="hero.quote">
+          They call it impossible. I call it inevitable. Because an
+          emperor's will cannot be denied.
+        </p>
+        <div class="hero-meta">
+          <span class="hero-clock" id="hero-clock"></span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="#projects" data-i18n="hero.cta1"
+            >See my work</a
+          >
+          <a class="btn" href="#links" data-i18n="hero.cta2">Links</a>
+          <button
+            class="btn"
+            id="share-btn"
+            type="button"
+            hidden
+            data-i18n="hero.share"
+          >
+            Share
+          </button>
+        </div>
+      </section>
 
-          <!-- Forge terminal — numbers are injected at build time from measured values -->
-          <div class="hero-term" aria-hidden="true">
-            <div class="term-bar">
-              <span class="term-dot term-dot--r"></span>
-              <span class="term-dot term-dot--y"></span>
-              <span class="term-dot term-dot--g"></span>
-              <span class="term-title">forge — zsh</span>
-            </div>
-            <div class="term-body">
-              <div class="term-line">
-                <span class="term-prompt">~/forge ❯</span>
-                <span id="term-line-1" data-text="forge build --target=production">forge build --target=production</span>
-                <span class="term-cursor"></span>
-              </div>
-              <div class="term-line term-out">
-                <span class="term-ok">✓</span>
-                <span id="term-build-stats">css=21.0KB js=27.3KB · 53 tests passed</span>
-              </div>
-              <div class="term-line">
-                <span class="term-prompt">~/forge ❯</span>
-                <span id="term-line-2" data-text="git push origin main">git push origin main</span>
-              </div>
-              <div class="term-line term-out">
-                <span class="term-ok">✓</span>
-                <span id="term-live-stats">9 builds live on staging</span>
-              </div>
-            </div>
-          </div>
-        </section>
+      <!-- STATUS — a register line -->
+      <section class="status" id="status-tile">
+        <span class="live-tick" aria-hidden="true"></span>
+        <span class="status-text" id="status-text">Loading…</span>
+        <span class="status-updated" id="status-date"></span>
+      </section>
 
-        <!-- STACK TICKER: the 4-language build identity -->
-        <div class="ticker" aria-hidden="true">
-          <div class="ticker-track">
-            <span>html5</span><span class="tk-sep">✦</span>
-            <span>scss</span><span class="tk-sep">✦</span>
-            <span>typescript</span><span class="tk-sep">✦</span>
-            <span>python</span><span class="tk-sep">✦</span>
-            <span>github-pages</span><span class="tk-sep">✦</span>
-            <span>pwa</span><span class="tk-sep">✦</span>
-            <span>no-frameworks</span><span class="tk-sep">✦</span>
-            <span>vanilla-js</span><span class="tk-sep">✦</span>
-            <span>html5</span><span class="tk-sep">✦</span>
-            <span>scss</span><span class="tk-sep">✦</span>
-            <span>typescript</span><span class="tk-sep">✦</span>
-            <span>python</span><span class="tk-sep">✦</span>
-            <span>github-pages</span><span class="tk-sep">✦</span>
-            <span>pwa</span><span class="tk-sep">✦</span>
+      <!-- BUILT ON -->
+      <section class="buildon" id="buildon-tile">
+        <p class="buildon-line">html + scss + ts + python <span class="ok">✓</span></p>
+        <p class="buildon-line">build --target=production <span class="ok">✓</span></p>
+        <p class="buildon-line">deploy --platform=github-pages <span class="ok">✓</span></p>
+      </section>
+
+      <!-- GITHUB STATS -->
+      <section class="gh" id="github-tile">
+        <div class="gh-row" id="gh-stats">
+          <div class="gh-stat">
+            <div class="gh-num" id="gh-repos">8</div>
+            <span class="gh-label" data-i18n="github.repos">repos</span>
+          </div>
+          <div class="gh-stat">
+            <div class="gh-num" id="gh-stars">0</div>
+            <span class="gh-label" data-i18n="github.stars">stars</span>
+          </div>
+          <div class="gh-stat">
+            <div class="gh-num" id="gh-push">2026-11-01</div>
+            <span class="gh-label" data-i18n="github.lastPush">last push</span>
           </div>
         </div>
+        <span class="gh-note" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
+      </section>
 
-        <!-- STATUS -->
-        <section class="tile tile-status reveal" id="status-tile">
-          <span class="tile-label" data-i18n="status.label"
-            >Currently building</span
-          >
-          <div class="status-row">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span class="status-text" id="status-text">Loading…</span>
-          </div>
-          <span class="status-updated" id="status-date"></span>
-        </section>
+      <!-- PROJECTS — numbered register -->
+      <section class="register" id="projects">
+        <h2 class="section-title">
+          <span class="section-index">01</span>
+          <span data-i18n="projects.title">Projects</span>
+        </h2>
+        <div id="projects-list">
+          <!-- rendered by render.ts -->
+        </div>
+      </section>
 
-        <!-- BUILT ON -->
-        <section class="tile tile-buildon reveal" id="buildon-tile">
-          <span class="tile-label" data-i18n="buildon.label">Built on</span>
-          <p class="term-line">html + scss + ts + python <span class="ok">✓</span></p>
-          <p class="term-line">build --target=production <span class="ok">✓</span></p>
-          <p class="term-line">deploy --platform=github-pages <span class="ok">✓</span></p>
-        </section>
+      <!-- SHIP LOG — chronological register -->
+      <section class="register" id="shiplog">
+        <h2 class="section-title">
+          <span class="section-index">02</span>
+          <span data-i18n="shiplog.title">Ship Log</span>
+        </h2>
+        <div id="shiplog-list">
+          <!-- rendered by render.ts -->
+        </div>
+      </section>
 
-        <!-- GITHUB STATS — populated from the GitHub API at runtime, static
-             fallback shipped in HTML so no-JS/at-rest is never a dead dash -->
-        <section class="tile tile-github reveal" id="github-tile">
-          <span class="tile-label" data-i18n="github.label">GitHub</span>
-          <div class="gh-stats" id="gh-stats">
-            <div class="gh-stat">
-              <strong id="gh-repos">8</strong>
-              <span data-i18n="github.repos">repos</span>
-            </div>
-            <div class="gh-stat">
-              <strong id="gh-stars">0</strong>
-              <span data-i18n="github.stars">stars</span>
-            </div>
-            <div class="gh-stat">
-              <strong id="gh-push">2026-11-01</strong>
-              <span data-i18n="github.lastPush">last push</span>
-            </div>
-          </div>
-          <span class="gh-note" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
-        </section>
+      <!-- SKILLS -->
+      <section class="register" id="skills">
+        <h2 class="section-title">
+          <span class="section-index">03</span>
+          <span data-i18n="skills.title">Skills</span>
+        </h2>
+        <div class="skill-list" id="skills-list">
+          <!-- rendered by render.ts -->
+        </div>
+      </section>
 
-        <!-- PROJECTS -->
-        <section class="tile tile-projects reveal" id="projects">
-          <h2 class="section-title" data-i18n="projects.title">Projects</h2>
-          <div class="projects-grid" id="projects-grid">
-            <!-- rendered by render.ts -->
-          </div>
-        </section>
-
-        <!-- SHIP LOG -->
-        <section class="tile tile-shiplog reveal" id="shiplog">
-          <h2 class="section-title" data-i18n="shiplog.title">Ship Log</h2>
-          <div id="shiplog-list">
-            <!-- rendered by render.ts -->
-          </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="tile tile-skills reveal" id="skills">
-          <h2 class="section-title" data-i18n="skills.title">Skills</h2>
-          <div class="skills-list" id="skills-list">
-            <!-- rendered by render.ts -->
-          </div>
-        </section>
-
-        <!-- LINKS -->
-        <section class="tile tile-links reveal" id="links">
-          <h2 class="section-title" data-i18n="links.title">Links</h2>
-          <div class="links-grid" id="links-grid">
-            <!-- rendered by render.ts -->
-          </div>
-        </section>
-      </div>
+      <!-- LINKS -->
+      <section class="register" id="links">
+        <h2 class="section-title">
+          <span class="section-index">04</span>
+          <span data-i18n="links.title">Links</span>
+        </h2>
+        <div id="links-list">
+          <!-- rendered by render.ts -->
+        </div>
+      </section>
     </main>
-
-    <a class="to-top" href="#main" aria-label="Back to top">↑</a>
 
     <footer class="footer">
       <div class="footer-inner shell">
@@ -362,10 +343,10 @@
 
     <!-- MOBILE BOTTOM NAV -->
     <nav class="bottom-nav" aria-label="Mobile navigation">
-      <a href="#hero" aria-label="Home">⌂</a>
-      <a href="#projects" aria-label="Projects">▦</a>
-      <a href="#shiplog" aria-label="Ship Log">☰</a>
-      <a href="#links" aria-label="Links">⚡</a>
+      <a href="#hero">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#shiplog">Ship Log</a>
+      <a href="#links">Links</a>
     </nav>
 
     <!-- COMMAND PALETTE -->
@@ -389,18 +370,12 @@
 
     <noscript>
       <style>
-        .js .reveal {
+        .reveal {
           opacity: 1;
           transform: none;
         }
-        .bento {
-          display: block;
-        }
-        .tile {
-          margin-bottom: 16px;
-        }
       </style>
-      <p style="text-align: center; padding: 20px; color: #c6ff3d">
+      <p style="text-align: center; padding: 20px; color: #c8391f">
         This site works best with JavaScript enabled.
       </p>
     </noscript>

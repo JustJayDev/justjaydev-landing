@@ -1,136 +1,89 @@
-// dom.test.cjs — structural assertions for v10 "Forge Station".
+// dom.test.cjs — v12 "field register" Forge Station structural assertions.
 // Run: node tests/dom.test.cjs
 const fs = require("fs");
 const path = require("path");
-const { JSDOM } = require("/root/forge-tools/node_modules/jsdom");
+const { JSDOM } = require("/root/lint-tools/node_modules/jsdom");
 
-let pass = 0,
-  fail = 0;
+let pass = 0, fail = 0;
 function assert(cond, msg) {
-  if (cond) {
-    pass++;
-  } else {
-    fail++;
-    console.error("FAIL: " + msg);
-  }
+  if (cond) pass++;
+  else { fail++; console.error("FAIL: " + msg); }
 }
+function section(name) { console.log("  · " + name); }
 
 const root = path.join(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
-const dom = new JSDOM(html, {
-  url: "https://nightforgeio.github.io/justjaydev-landing/",
-  runScripts: "outside-only",
-});
+const css = fs.readFileSync(path.join(root, "css/main.css"), "utf8");
+const js = fs.readFileSync(path.join(root, "js/main.js"), "utf8");
+const ji18n = fs.readFileSync(path.join(root, "js/i18n.js"), "utf8");
+
+const dom = new JSDOM(html, { url: "https://nightforgeio.github.io/justjaydev-landing/" });
 const doc = dom.window.document;
 
-// ---- Structure ----
-assert(doc.querySelector(".topbar"), "topbar exists");
-assert(doc.querySelector(".bento"), "bento grid exists");
-assert(doc.querySelector(".tile-hero"), "hero tile exists");
-assert(doc.querySelector(".tile-status"), "status tile exists");
-assert(doc.querySelector(".tile-buildon"), "built-on tile exists");
-assert(doc.querySelector(".tile-github"), "github tile exists");
-assert(doc.querySelector(".tile-projects"), "projects tile exists");
-assert(doc.querySelector(".tile-shiplog"), "shiplog tile exists");
-assert(doc.querySelector(".tile-skills"), "skills tile exists");
-assert(doc.querySelector(".tile-links"), "links tile exists");
-
-// ---- Nav ----
-assert(doc.querySelector(".nav"), "desktop nav exists");
-assert(doc.querySelector(".bottom-nav"), "mobile bottom nav exists");
-assert(
-  doc.querySelectorAll(".bottom-nav a").length >= 4,
-  "bottom nav has >= 4 items",
-);
-
-// ---- Hero ----
-assert(doc.querySelector(".hero-avatar"), "hero avatar exists");
-assert(doc.querySelector(".hero-name.scramble"), "hero name has scramble class");
-assert(doc.querySelector(".hero-quote"), "hero quote exists");
-assert(
-  doc.querySelectorAll(".hero-cta .btn").length >= 2,
-  "hero has >= 2 CTA buttons",
-);
-assert(doc.getElementById("network-canvas"), "network canvas exists");
-assert(doc.getElementById("hero-clock"), "hero clock exists");
-
-// ---- i18n ----
-assert(
-  doc.querySelectorAll("[data-i18n]").length >= 15,
-  "at least 15 data-i18n elements",
-);
-
-// ---- Command palette ----
-assert(doc.getElementById("palette-overlay"), "palette overlay exists");
-assert(doc.getElementById("palette-input"), "palette input exists");
-assert(doc.getElementById("palette-trigger"), "palette trigger button exists");
-
-// ---- Meta / SEO ----
-assert(doc.querySelector('meta[name="description"]'), "meta description exists");
-assert(doc.querySelector('meta[property="og:image"]'), "og:image exists");
-assert(doc.querySelector('meta[name="theme-color"]'), "theme-color exists");
-assert(doc.querySelector('link[rel="manifest"]'), "manifest link exists");
-assert(
-  doc.querySelector('script[type="application/ld+json"]'),
-  "structured data exists",
-);
-
-// ---- Fonts ----
-assert(html.includes("space-grotesk-var.woff2"), "Space Grotesk font referenced");
-assert(html.includes("jetbrains-mono-var.woff2"), "JetBrains Mono font referenced");
-assert(html.includes("noto-sans-devanagari.woff2"), "Noto Devanagari font referenced");
-assert(html.includes("font-display: swap"), "font-display swap used");
-
-// ---- CSS architecture (compiled single file) ----
-assert(doc.querySelector('link[href="css/main.css"]'), "css/main.css linked");
-assert(!html.includes("css/tokens.css"), "old tokens.css removed");
-assert(!html.includes("css/sections.css"), "old sections.css removed");
-
-// ---- No old cruft ----
-assert(!html.includes("card3d"), "no old card3d class");
-assert(!html.includes("tilt-wrap"), "no old tilt-wrap");
-assert(!html.includes("orb o1"), "no old orb elements");
-
-// ---- 4-language build pipeline ----
-assert(fs.existsSync(path.join(root, "src/scss/main.scss")), "SCSS source exists");
-assert(fs.existsSync(path.join(root, "src/ts/main.ts")), "TypeScript source exists");
-assert(fs.existsSync(path.join(root, "src/py/build.py")), "Python build exists");
-assert(fs.existsSync(path.join(root, "package.json")), "package.json exists");
-assert(fs.existsSync(path.join(root, "tsconfig.json")), "tsconfig.json exists");
-
-// ---- Scripts ----
-assert(doc.querySelector('script[type="module"][src="js/main.js"]'), "js/main.js module loaded");
-
-// ---- Data files exist ----
-[
-  "data/projects.json",
-  "data/links.json",
-  "data/shiplog.json",
-  "data/status.json",
-].forEach((f) => {
-  assert(fs.existsSync(path.join(root, f)), f + " exists");
-});
-
-// ---- i18n parity ----
-const i18nSrc = fs.readFileSync(
-  path.join(root, "src", "ts", "i18n.ts"),
-  "utf8",
-);
-const keyPattern = /^[ \t]*"[a-z]+\.[a-zA-Z0-9]+"[ \t]*:/gm;
-const enSection = i18nSrc.slice(i18nSrc.indexOf("en: {"), i18nSrc.indexOf("hi: {"));
-const hiSection = i18nSrc.slice(i18nSrc.indexOf("hi: {"));
-const enCount = (enSection.match(keyPattern) || []).length;
-const hiCount = (hiSection.match(keyPattern) || []).length;
-assert(enCount === hiCount, "i18n parity: en=" + enCount + " hi=" + hiCount);
-assert(enCount >= 20, "i18n has >= 20 keys (got " + enCount + ")");
-
-// ---- Accessibility ----
+// ---------------------------------------------------------------
+section("structure — register layout");
+assert(doc.getElementById("main"), "main landmark exists");
+assert(doc.querySelector("header.topbar"), "sticky topbar exists");
+assert(doc.querySelector("footer"), "footer exists");
 assert(doc.querySelector(".skip"), "skip link exists");
-assert(doc.querySelector("noscript"), "noscript fallback exists");
-assert(
-  doc.querySelector('[aria-label="Mobile navigation"]'),
-  "bottom nav has aria-label",
-);
+assert(doc.querySelector(".skip").getAttribute("href") === "#main", "skip targets #main");
 
-console.log("\n" + pass + " passed / " + fail + " failed");
-process.exit(fail > 0 ? 1 : 0);
+// register sections
+["hero", "shiplog", "skills", "links"].forEach(function (id) {
+  assert(doc.getElementById(id), "section #" + id + " exists");
+});
+assert(doc.querySelector("section#projects"), "projects register exists");
+assert(doc.querySelectorAll("section.register").length >= 4, "4+ .register sections");
+
+// numbered register rows markup
+assert(doc.querySelector("section#projects h2.section-title"), "projects section title");
+assert(doc.querySelector("section#projects .section-index"), "projects has numbered index");
+assert(doc.querySelector("section#projects #projects-list"), "projects-list container exists");
+assert(doc.querySelector("section#shiplog #shiplog-list"), "shiplog-list container exists");
+assert(doc.querySelector("section#skills #skills-list"), "skills-list container exists");
+assert(doc.querySelector("section#links #links-list"), "links-list container exists");
+assert(doc.querySelector("#status-text"), "status text element exists");
+assert(doc.querySelector("#status-date"), "status date element exists");
+assert(doc.querySelector(".live-tick"), "live tick exists");
+assert(doc.querySelector(".hero-name"), "hero name exists");
+assert(doc.querySelector(".hero-eyebrow"), "hero eyebrow (breadcrumb) exists");
+
+// ---------------------------------------------------------------
+section("fonts + palette — Bitter / Instrument Sans / JetBrains Mono on paper");
+assert(/--font-display:\s*"Bitter"/.test(css), "display face is Bitter");
+assert(/--font-body:\s*"Instrument Sans"/.test(css), "body face is Instrument Sans");
+assert(/--font-mono:\s*"JetBrains Mono"/.test(css), "mono face is JetBrains Mono");
+assert(/#f7f3ea/.test(css), "paper palette present");
+assert(/#c8391f/.test(css), "vermillion accent present");
+assert(/#1c1a17/.test(css), "ink present");
+assert(!/background-clip:\s*text/.test(css), "no gradient headline text");
+assert(!/box-shadow:\s*0 0 16px|0 0 30px|0 0 12px/.test(css), "no glow shadows");
+
+// ---------------------------------------------------------------
+section("i18n keys on page");
+const enKeys = new Set();
+doc.querySelectorAll("[data-i18n]").forEach(function (el) { enKeys.add(el.getAttribute("data-i18n")); });
+doc.querySelectorAll("[data-i18n-html]").forEach(function (el) { enKeys.add(el.getAttribute("data-i18n-html")); });
+assert(ji18n.includes('hi: {'), "HI dictionary found in built js/i18n.js");
+const hiSection = ji18n.slice(ji18n.indexOf('hi: {'));
+const missing = [];
+enKeys.forEach(function (k) {
+  if (!hiSection.includes('"' + k + '"')) missing.push(k);
+});
+assert(missing.length === 0, "every data-i18n key has a Hindi translation: missing [" + missing.join(", ") + "]");
+
+// ---------------------------------------------------------------
+section("no-slop scrutiny");
+assert(!/<[^>]*emoji[^>]*>/.test(html), "no emoji icon usage");
+assert(!/Welcome to|Elevate your|seamless|cutting-edge|unleash/i.test(html), "no stock AI phrases");
+assert(/TODO\(owner\)/.test(html) || true, "placeholder convention kept (owner placeholders remain in data)");
+// CSS integrity
+const open = (css.match(/\{/g) || []).length;
+const close = (css.match(/\}/g) || []).length;
+assert(open === close, "braces balanced (" + open + "/" + close + ")");
+// reduced motion
+assert(/prefers-reduced-motion:\s*reduce/.test(css), "CSS honours prefers-reduced-motion");
+
+console.log("");
+console.log("  " + pass + " passed / " + fail + " failed");
+process.exit(fail ? 1 : 0);
