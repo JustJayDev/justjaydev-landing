@@ -1,14 +1,21 @@
 {
-  "name": "JustJayDev",
-  "short_name": "JustJayDev",
-  "description": "Jay — builder, developer, gamer. Verified live builds and links.",
-  "start_url": "./index.html",
+  "name": "JustJayDev · The Forge",
+  "short_name": "Forge",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#06070d",
-  "theme_color": "#06070d",
-  "orientation": "portrait-primary",
+  "background_color": "#0a0604",
+  "theme_color": "#0a0604",
   "icons": [
-    { "src": "assets/icon-32.png", "sizes": "32x32", "type": "image/png" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "assets/icon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-32.webp",
+      "sizes": "32x32",
+      "type": "image/webp"
+    }
   ]
 }

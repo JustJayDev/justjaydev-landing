@@ -1,6 +1,0 @@
-[
-  { "id": "github", "label": { "en": "GitHub", "hi": "GitHub" }, "url": null, "placeholder": true },
-  { "id": "youtube", "label": { "en": "YouTube", "hi": "YouTube" }, "url": "https://www.youtube.com/@kaizenff.official", "sub": "@kaizenff.official", "placeholder": false },
-  { "id": "instagram", "label": { "en": "Instagram", "hi": "Instagram" }, "url": null, "placeholder": true },
-  { "id": "email", "label": { "en": "Email", "hi": "ईमेल" }, "url": "mailto:jaykumar.c2010@gmail.com", "sub": "jaykumar.c2010@gmail.com", "placeholder": false }
-]

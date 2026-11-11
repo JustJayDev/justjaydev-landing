@@ -3,216 +3,675 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>JustJayDev · Forge Console</title>
-    <meta
-      name="description"
-      content="Jay (JustJayDev) — builder, developer, gamer. A console of verified live builds, ship log, toolkit and reach."
-    />
-    <meta name="theme-color" content="#0b0d0e" />
+    <title>JustJayDev — The Forge</title>
+    <meta name="description" content="JustJayDev — builder, developer, gamer. Metal is forged, not built. Live work, a ship log, and no shortcuts." />
+    <meta name="theme-color" content="#0a0604" />
+    <meta name="google-site-verification" content="yxH_HOX5ByYovZ9krFg23hR9YTv7EMusiC01OondrV4" />
     <link rel="canonical" href="https://nightforgeio.github.io/justjaydev-landing/" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="hi_IN" />
-    <meta property="og:title" content="JustJayDev · Forge Console" />
-    <meta property="og:description" content="Builder, developer, gamer. Verified live builds, ship log and links." />
+    <meta property="og:title" content="JustJayDev · The Forge" />
+    <meta property="og:description" content="Builder, developer, gamer. Metal is forged, not built." />
     <meta property="og:url" content="https://nightforgeio.github.io/justjaydev-landing/" />
-    <meta property="og:image" content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JustJayDev · Forge Console" />
-    <meta name="twitter:description" content="Builder, developer, gamer. Verified live builds, ship log and links." />
-    <meta name="twitter:image" content="https://nightforgeio.github.io/justjaydev-landing/assets/share.jpg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png" />
-    <link rel="apple-touch-icon" href="assets/icon-512.png" />
+    <link rel="icon" type="image/webp" sizes="32x32" href="assets/icon-32.webp" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.webp" />
     <link rel="manifest" href="manifest.json" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jay (JustJayDev)",
-        "url": "https://nightforgeio.github.io/justjaydev-landing/",
-        "jobTitle": "Builder · Developer · Gamer",
-        "sameAs": [
-          "https://github.com/JustJayDev",
-          "https://www.youtube.com/@kaizenff.official"
-        ]
-      }
-    </script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("sw.js").catch(() => {});
-        });
-      }
-    </script>
-    <link rel="stylesheet" href="css/main.css?v=13.0" />
     <style>
-      @font-face {
-        font-family: "Azeret Mono";
-        src: url("fonts/azeret-mono-400.woff2") format("woff2");
-        font-weight: 400;
-        font-display: swap;
+      /* ---- Fonts ---- */
+      @font-face { font-family:"Azeret Mono"; src:url("fonts/azeret-mono-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
+      @font-face { font-family:"Azeret Mono"; src:url("fonts/azeret-mono-500.woff2") format("woff2"); font-weight:500; font-display:swap; }
+      @font-face { font-family:"Azeret Mono"; src:url("fonts/azeret-mono-700.woff2") format("woff2"); font-weight:700; font-display:swap; }
+      @font-face { font-family:"Bitter"; src:url("fonts/bitter-400.woff2") format("woff2"); font-weight:400; font-display:swap; }
+      @font-face { font-family:"Bitter"; src:url("fonts/bitter-700.woff2") format("woff2"); font-weight:700; font-display:swap; }
+      @font-face { font-family:"Bitter"; src:url("fonts/bitter-800.woff2") format("woff2"); font-weight:800; font-display:swap; }
+
+      :root {
+        --iron: #0a0604;
+        --iron-2: #120b07;
+        --white-hot: #fff4e0;
+        --ember: #ff6a2b;
+        --gold: #e8a13a;
+        --ink: #e9dcd0;
+        --ink-dim: #9c8878;
+        --hairline: #2a1c12;
+        --serif: "Bitter", Georgia, serif;
+        --display: "Azeret Mono", ui-monospace, monospace;
+        --sp: 24px;
       }
-      @font-face {
-        font-family: "Azeret Mono";
-        src: url("fonts/azeret-mono-500.woff2") format("woff2");
-        font-weight: 500;
-        font-display: swap;
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body {
+        font-family: var(--serif);
+        background: var(--iron);
+        color: var(--ink);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
-      @font-face {
-        font-family: "Azeret Mono";
-        src: url("fonts/azeret-mono-600.woff2") format("woff2");
-        font-weight: 600;
-        font-display: swap;
+      body::after {
+        content:"";
+        position: fixed; inset:0; z-index:2; pointer-events:none;
+        background: radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(0,0,0,0.5) 100%);
       }
-      @font-face {
-        font-family: "Azeret Mono";
-        src: url("fonts/azeret-mono-700.woff2") format("woff2");
-        font-weight: 700;
-        font-display: swap;
+      a { color:inherit; text-decoration:none; }
+      img { max-width:100%; display:block; }
+      ::selection { background: var(--ember); color: #170803; }
+      ::-webkit-scrollbar { width:10px; height:10px; }
+      ::-webkit-scrollbar-track { background: var(--iron); }
+      ::-webkit-scrollbar-thumb { background: var(--hairline); border-radius:5px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--ink-dim); }
+      :focus-visible { outline:2px solid var(--ember); outline-offset:3px; }
+
+      /* ---- Forge canvas ---- */
+      #forge {
+        position: fixed; inset:0; width:100%; height:100%;
+        z-index:0; pointer-events:none; display:block;
       }
-@font-face {
-        font-family: "JetBrains Mono";
-        src: url("fonts/jetbrains-mono-var.woff2") format("woff2");
-        font-weight: 100 800;
-        font-display: swap;
+      /* flame glow behind hero */
+      .flame {
+        position: fixed; inset:0; z-index:0; pointer-events:none;
+        background: radial-gradient(45% 40% at 50% 78%, rgba(255,106,43,0.22), transparent 70%);
+        animation: breathe 7s ease-in-out infinite alternate;
       }
-      @font-face {
-        font-family: "Noto Sans Devanagari";
-        src: url("fonts/noto-sans-devanagari.woff2") format("woff2");
-        font-weight: 100 900;
-        font-display: swap;
+      @keyframes breathe { from { opacity:0.6; } to { opacity:1; } }
+
+      .shell { position:relative; z-index:3; max-width:1180px; margin:0 auto; padding:0 var(--sp); }
+
+      /* ---- Top bar ---- */
+      .topbar {
+        position: relative; z-index:5;
+        display:flex; align-items:center; justify-content:space-between;
+        gap:16px; padding:18px var(--sp); max-width:1180px; margin:0 auto;
+        border-bottom:1px solid var(--hairline);
       }
+      .brand { font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:0.04em; color:var(--white-hot); padding:8px 2px; display:inline-block; }
+      .brand em { font-style:normal; color:var(--ember); }
+      .nav { display:flex; gap:22px; }
+      .nav a { font-family:var(--display); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-dim); transition:color .2s; padding:8px 2px; }
+      html[data-fine="true"] .nav a:hover { color:var(--white-hot); }
+      .nav .hot { color:var(--ember); }
+
+      /* ---- Hero (mobile-first, stacked) ---- */
+      .hero {
+        min-height: 88svh;
+        display:flex; flex-direction:column; justify-content:center;
+        padding: 40px 0 72px;
+        position:relative;
+      }
+      .hero-inner { width:100%; }
+      .hero-kicker {
+        font-family:var(--display); font-size:12px; letter-spacing:0.2em;
+        text-transform:uppercase; color:var(--ember); margin-bottom:26px;
+      }
+      .hero-kicker::before { content:"▚ "; color:var(--gold); }
+      .hero h1 {
+        font-family:var(--serif); font-weight:800;
+        font-size: clamp(3rem, 13vw, 5rem);
+        line-height: 0.94; letter-spacing: -0.02em;
+        color: var(--white-hot);
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .hero h1 .ghost { color: transparent; -webkit-text-stroke: 1.5px rgba(255,244,224,0.35); }
+      .hero h1 .hot { color: var(--ember); }
+      .hero-sub {
+        font-size: clamp(1.05rem, 3.2vw, 1.35rem);
+        color: var(--ink-dim); max-width: 30em; font-weight: 700;
+        margin-bottom: 34px;
+      }
+      .hero-sub strong { color: var(--white-hot); font-weight:800; }
+      .hero-cta { display:flex; flex-wrap:wrap; gap:14px; }
+
+      /* Anvil panel — hidden on mobile, shown on desktop */
+      .anvil { display:none; }
+      .btn {
+        font-family:var(--display); font-size:12.5px; font-weight:500;
+        letter-spacing:0.03em; padding:15px 26px; border-radius:2px;
+        border:1px solid var(--ember); color:var(--white-hot);
+        background:linear-gradient(180deg, #1a0d07, #0f0805);
+        cursor:pointer; transition:box-shadow .25s, transform .15s;
+        text-transform:uppercase;
+      }
+      html[data-fine="true"] .btn:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .btn--forge {
+        background: var(--ember); border-color: var(--ember); color: #170803;
+        font-weight:700;
+      }
+      html[data-fine="true"] .btn--forge:hover { border-color: var(--white-hot); }
+
+      /* ---- Heat meter ---- */
+      .heat {
+        display:grid; grid-template-columns: 1fr auto;
+        gap: 8px 20px; align-items:end;
+        margin-top: 48px; max-width: 480px;
+        font-family: var(--display); font-size: 11px; color: var(--ink-dim);
+      }
+      .heat .label { letter-spacing:0.12em; text-transform:uppercase; }
+      .heat .readout { font-size: 14px; color: var(--gold); }
+      .heat .bar { grid-column: 1 / -1; height: 4px; background: var(--hairline); position:relative; overflow:hidden; }
+      .heat .bar i { position:absolute; inset:0; width:0%; background: linear-gradient(90deg, #8a3a12, var(--ember), var(--white-hot)); transition: width .3s ease; }
+      .heat .bar i::after { content:""; position:absolute; right:0; top:0; bottom:0; width:6px; background:#fff; filter: blur(2px); }
+
+      /* ---- Sections ---- */
+      section { padding: 88px 0; }
+      .sec-head { display:flex; align-items:baseline; gap:16px; margin-bottom:36px; flex-wrap:wrap; }
+      .sec-title { font-family:var(--serif); font-weight:800; font-size: clamp(1.8rem,5vw,2.6rem); color:var(--white-hot); text-transform:uppercase; }
+      .sec-sub { font-family:var(--display); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-dim); }
+
+      /* ---- Projects: "tooling" list, not cards ---- */
+      .tooling { border-top: 1px solid var(--hairline); }
+      .tool {
+        display:grid; grid-template-columns: 40px 1fr auto;
+        gap: 20px; align-items:center;
+        padding: 24px 0; border-bottom: 1px solid var(--hairline);
+        transition: background .2s, padding-left .2s;
+      }
+      html[data-fine="true"] .tool:hover { background: linear-gradient(90deg, rgba(255,106,43,0.06), transparent); padding-left: 10px; }
+      .tool-num { font-family:var(--display); font-size:13px; color:var(--gold); }
+      .tool h3 { font-family:var(--serif); font-weight:800; font-size: clamp(1.1rem,3vw,1.45rem); color:var(--ink); }
+      .tool .tool-desc { color:var(--ink-dim); font-family:var(--display); font-size:12px; margin-top:5px; }
+      .tool .tech { font-family:var(--display); font-size:10.5px; color:var(--ink-dim); letter-spacing:0.05em; margin-top:8px; }
+      .tool .tech span { border:1px solid var(--hairline); padding:3px 8px; margin-right:6px; border-radius:2px; }
+      .tool .go { font-family:var(--display); font-size:13px; color:var(--ember); white-space:nowrap; padding:12px 8px; }
+      .tool .go::after { content:" ↗"; }
+
+      /* ---- Ship log ---- */
+      .log { border-top:1px solid var(--hairline); }
+      .log-item { display:grid; grid-template-columns: 130px 1fr; gap:18px; padding:20px 0; border-bottom:1px solid var(--hairline); }
+      .log-date { font-family:var(--display); font-size:12px; color:var(--gold); padding-top:3px; }
+      .log-title { font-family:var(--serif); font-weight:800; font-size:1.15rem; color:var(--ink); }
+      .log-desc { color:var(--ink-dim); font-family:var(--display); font-size:12px; margin-top:4px; }
+      .log-tag { display:inline-block; margin-top:9px; font-family:var(--display); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ember); border:1px solid var(--hairline); padding:3px 9px; border-radius:2px; }
+
+      /* ---- Links ---- */
+      .links { display:grid; grid-template-columns: 1fr; gap:12px; }
+      .link {
+        display:flex; align-items:center; justify-content:space-between;
+        padding: 20px 24px; border:1px solid var(--hairline);
+        border-radius:2px; color:var(--ink); font-family:var(--display); font-size:14px;
+        transition: border-color .2s, background .2s;
+      }
+      html[data-fine="true"] .link:hover { border-color: var(--ember); background: rgba(255,106,43,0.05); }
+      .link .sub { color: var(--ink-dim); font-size:11.5px; }
+      .link .arrow { color: var(--ember); }
+
+      /* ---- Footer ---- */
+      .footer { border-top:1px solid var(--hairline); padding:40px 0; }
+      .footer-inner { display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center; font-family:var(--display); font-size:11.5px; color:var(--ink-dim); }
+      .footer .accent { color:var(--ember); }
+
+      /* ---- Motion ---- */
+      .reveal { opacity:0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+      .reveal.is-visible { opacity:1; transform:none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        #forge { display:none; }
+        .flame { animation:none; }
+        .reveal { transition:none; opacity:1; transform:none; }
+        html { scroll-behavior:auto; }
+      }
+
+      /* ---- Desktop experience: [data-device="desktop"] ---- */
+      @media (min-width:720px) {
+        .links { grid-template-columns: repeat(3, 1fr); }
+        .tool { grid-template-columns: 50px 1fr auto; }
+      }
+
+      html[data-device="desktop"] .hero {
+        flex-direction: row; align-items:center; gap: 6vw;
+        min-height: 94vh;
+      }
+      html[data-device="desktop"] .hero-inner { flex: 1.15; max-width: 720px; }
+      html[data-device="desktop"] .hero h1 { font-size: clamp(4rem, 6.2vw, 7.5rem); }
+      html[data-device="desktop"] .hero-sub { max-width: 32em; }
+      /* Anvil panel appears only on desktop */
+      html[data-device="desktop"] .anvil {
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        flex: 0 0 320px; aspect-ratio: 1; border-radius: 50%;
+        border: 1px solid var(--hairline);
+        background:
+          radial-gradient(circle at 50% 42%, rgba(255,106,43,0.16), transparent 60%),
+          linear-gradient(180deg, #150d08, #0b0705);
+        box-shadow: inset 0 0 60px rgba(0,0,0,0.6);
+        position:relative;
+      }
+      html[data-device="desktop"] .anvil::before {
+        content:""; position:absolute; inset:14px; border-radius:50%;
+        border:1px dashed rgba(232,161,58,0.35);
+      }
+      html[data-device="desktop"] .anvil-core {
+        font-family:var(--serif); font-weight:800; color:var(--white-hot);
+        font-size: 3.4rem; line-height:1; display:flex; align-items:baseline; gap:4px;
+      }
+      html[data-device="desktop"] .anvil-core span { color:var(--gold); }
+      html[data-device="desktop"] .anvil-core em { font-style:normal; font-size:1.2rem; color:var(--ink-dim); }
+      html[data-device="desktop"] .anvil-label {
+        font-family:var(--display); font-size:10px; letter-spacing:0.22em;
+        text-transform:uppercase; color:var(--ember); margin-top:14px;
+      }
+
+      /* ---- Mobile experience: [data-device="phone"] ---- */
+      @media (max-width:600px) {
+        .nav { display:none; }
+        .log-item { grid-template-columns: 1fr; gap:6px; }
+        .tool { grid-template-columns: 30px 1fr; }
+        .tool .go { grid-column: 2; }
+      }
+      html[data-device="phone"] .hero { min-height: 86svh; }
+      html[data-device="phone"] .hero h1 { font-size: clamp(2.9rem, 14vw, 4.6rem); }
+      html[data-device="phone"] .hero-sub { font-size: 1.02rem; }
+
+      /* ---- Tabbed mobile app experience ---- */
+      /* Home takes the hero slot; tab sections are hidden unless active */
+      html[data-device="phone"] .tab { display:none; }
+      html[data-device="phone"] .tab.is-active { display:block; }
+
+      /* Bottom tab bar — mobile only */
+      html[data-device="phone"] .tabbar {
+        display:flex;
+        position:fixed; left:0; right:0; bottom:0; z-index:40;
+        background: rgba(10,6,4,0.92);
+        border-top:1px solid var(--hairline);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .tabbar { display:none; }
+      html[data-device="phone"] .tab-btn {
+        flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
+        padding:10px 0 12px; background:none; border:none; cursor:pointer;
+        font-family:var(--display); color:var(--ink-dim); font-size:11px; letter-spacing:0.04em;
+      }
+      html[data-device="phone"] .tab-btn .tb-ic { font-size:17px; line-height:1; }
+      html[data-device="phone"] .tab-btn.is-active { color:var(--ember); }
+      html[data-device="phone"] .tab-btn.is-active .tb-ic { color:var(--gold); }
+      html[data-device="phone"] .tab-btn:focus-visible { outline:2px solid var(--ember); outline-offset:-2px; }
+
+      /* Body needs bottom padding so content isn't hidden behind the tab bar */
+      html[data-device="phone"] body { padding-bottom: 68px; }
+
+      /* Home details + likes */
+      .home-block { padding: 40px 0 8px; border-top:1px solid var(--hairline); }
+      .detail-grid { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+      .detail {
+        display:flex; flex-direction:column; gap:3px;
+        border:1px solid var(--hairline); border-radius:2px;
+        padding:14px 16px;
+      }
+      .detail-k { font-family:var(--display); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+      .detail-v { font-family:var(--serif); font-size:1.05rem; color:var(--ink); }
+      .like-list { margin-top:20px; display:flex; flex-wrap:wrap; gap:10px; }
+      .chip {
+        font-family:var(--display); font-size:11.5px; letter-spacing:0.04em;
+        color:var(--ink); border:1px solid var(--hairline); border-radius:100px;
+        padding:9px 16px;
+      }
+      html[data-fine="true"] .chip:hover { border-color:var(--ember); color:var(--white-hot); }
+
+      /* Desktop: hide tab bar, show every section as one page */
+      html[data-device="desktop"] .tabbar { display:none; }
+      html[data-device="desktop"] .tab { display:block; }
+      html[data-device="desktop"] .tab--home { min-height:88vh; }
     </style>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <canvas id="forge" aria-hidden="true"></canvas>
+    <div class="flame" aria-hidden="true"></div>
 
-    <!-- STATUS BAR -->
-    <header class="statusbar">
-      <nav class="statusbar-inner" aria-label="Primary">
-        <a class="brand" href="#main">
-          <span class="brand-dot" aria-hidden="true"></span>~/justjaydev
-        </a>
-        <div class="statusbar-actions">
-          <button class="ctl" id="lang-toggle" type="button" aria-label="Switch language">हिन्दी</button>
-          <button class="ctl" id="palette-trigger" type="button" aria-label="Command palette" title="Ctrl+K">⌘K</button>
-        </div>
+    <header class="topbar">
+      <a class="brand" href="#top">JAY<em>@</em>FORGE</a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#work" class="hot">Work</a>
+        <a href="#log">Ship Log</a>
+        <a href="#links">Links</a>
       </nav>
     </header>
 
-    <main id="main">
-      <!-- CONSOLE / HERO -->
-      <section class="console" id="top">
-        <div class="console-eyebrow mono" data-i18n="hero.eyebrow">const jay = builder</div>
-        <h1 class="console-name" id="name">JAY<span class="caret" aria-hidden="true"></span></h1>
-        <p class="console-role">developer / gamer / ship-it</p>
-        <p class="console-quote" data-i18n="hero.quote">
-          I build what others call impossible. Quietly, and with real numbers.
-        </p>
-        <div class="console-readout">
-          <span class="readout-tick" aria-hidden="true"></span>
-          <span class="mono" id="status-text">Loading…</span>
-          <span class="mono faint" id="status-date"></span>
-        </div>
-        <div class="console-cta">
-          <a class="btn btn--primary" href="#work" data-i18n="hero.cta1">See the builds</a>
-          <a class="btn" href="#reach" data-i18n="hero.cta2">Reach me</a>
-        </div>
-      </section>
+    <main id="top" class="shell">
 
-      <!-- TOOLKIT STRIP -->
-      <section class="panel">
-        <div class="panel-label mono">toolkit</div>
-        <div class="chips" id="skills-list">
-          <!-- rendered by render.ts -->
-        </div>
-      </section>
+      <!-- TAB: HOME -->
+      <section class="tab tab--home" id="tab-home" data-tab="home" aria-label="Home">
+        <div class="hero-inner">
+          <h1>
+            Forged,<br />
+            <span class="ghost">not built.</span><br />
+            <span class="hot">Nothing breaks.</span>
+          </h1>
+          <p class="hero-kicker">Metal is forged · not built</p>
+          <p class="hero-sub">
+            I'm <strong>JustJayDev</strong> — I build things that survive
+            the hammer. Not templates, not filler. Work you can kick.
+          </p>
 
-      <!-- WORK — rows, not cards -->
-      <section class="panel" id="work">
-        <div class="panel-head">
-          <h2 class="panel-title mono"><span class="panel-num">01</span>Selected work</h2>
-          <span class="mono faint" id="gh-note" data-i18n="github.asof">as of 2026-11-04</span>
-        </div>
-        <div class="work-list" id="projects-list">
-          <!-- rendered by render.ts -->
-        </div>
-      </section>
-
-      <!-- GITHUB READOUT -->
-      <section class="panel" id="stats">
-        <div class="panel-head">
-          <h2 class="panel-title mono"><span class="panel-num">02</span>GitHub</h2>
-        </div>
-        <div class="stat-grid" id="gh-stats">
-          <div class="stat">
-            <div class="stat-num mono" id="gh-repos">8</div>
-            <span class="stat-label mono faint" data-i18n="github.repos">repos</span>
+          <div class="heat" aria-hidden="true">
+            <span class="label">Forge temp</span>
+            <span class="readout" id="heat-read">1530°C</span>
+            <div class="bar"><i id="heat-fill"></i></div>
           </div>
-          <div class="stat">
-            <div class="stat-num mono" id="gh-stars">0</div>
-            <span class="stat-label mono faint" data-i18n="github.stars">stars</span>
+        </div>
+
+        <!-- My details -->
+        <div class="home-block">
+          <h2 class="sec-title">About me</h2>
+          <p class="sec-sub">forged in India · learning in public</p>
+          <div class="detail-grid" id="detail-grid">
+            <div class="detail reveal"><span class="detail-k">Status</span><span class="detail-v">Self-taught developer</span></div>
+            <div class="detail reveal"><span class="detail-k">How I build</span><span class="detail-v">Builds from scratch · ships what others call impossible</span></div>
+            <div class="detail reveal"><span class="detail-k">Location</span><span class="detail-v">India</span></div>
+            <div class="detail reveal"><span class="detail-k">eSports IGN</span><span class="detail-v">TQG.KAIZEN · Sniper &amp; IGL</span></div>
           </div>
-          <div class="stat">
-            <div class="stat-num mono" id="gh-push">2026-11-01</div>
-            <span class="stat-label mono faint" data-i18n="github.lastPush">last push</span>
+        </div>
+
+        <!-- What I like -->
+        <div class="home-block">
+          <h2 class="sec-title">What I like</h2>
+          <p class="sec-sub">the stuff that keeps me at the anvil</p>
+          <div class="like-list">
+            <span class="chip reveal">Building</span>
+            <span class="chip reveal">Gaming</span>
+            <span class="chip reveal">eSports</span>
+            <span class="chip reveal">Open source</span>
+            <span class="chip reveal">Learning in public</span>
+            <span class="chip reveal">Clean, fast code</span>
+            <span class="chip reveal">Loud &amp; heavy metal work</span>
           </div>
         </div>
       </section>
 
-      <!-- SHIP LOG -->
-      <section class="panel" id="ships">
-        <div class="panel-head">
-          <h2 class="panel-title mono"><span class="panel-num">03</span>Ship log</h2>
+      <!-- TAB: WORK (every website built) -->
+      <section class="tab" id="tab-work" data-tab="work" aria-label="Work">
+        <div class="sec-head">
+          <h2 class="sec-title">The Work</h2>
+          <span class="sec-sub">every site I built</span>
         </div>
-        <div class="ship-list" id="shiplog-list">
-          <!-- rendered by render.ts -->
-        </div>
+        <div class="tooling" id="work-list"><!-- injected --></div>
       </section>
 
-      <!-- REACH -->
-      <section class="panel" id="reach">
-        <div class="panel-head">
-          <h2 class="panel-title mono"><span class="panel-num">04</span>Reach</h2>
+      <!-- TAB: SHIP LOG -->
+      <section class="tab" id="tab-log" data-tab="log" aria-label="Ship log">
+        <div class="sec-head">
+          <h2 class="sec-title">Ship Log</h2>
+          <span class="sec-sub">every strike, recorded</span>
         </div>
-        <div class="reach-list" id="links-list">
-          <!-- rendered by render.ts -->
+        <div class="log" id="log-list"><!-- injected --></div>
+      </section>
+
+      <!-- TAB: LINKS -->
+      <section class="tab" id="tab-links" data-tab="links" aria-label="Links">
+        <div class="sec-head">
+          <h2 class="sec-title">Find Me</h2>
+          <span class="sec-sub">at the anvil</span>
         </div>
+        <div class="links" id="links-grid"><!-- injected --></div>
       </section>
     </main>
 
+    <!-- Mobile bottom tab bar -->
+    <nav class="tabbar" aria-label="Sections">
+      <button class="tab-btn is-active" data-goto="home" aria-label="Home">
+        <span class="tb-ic" aria-hidden="true">▚</span><span class="tb-label">Home</span>
+      </button>
+      <button class="tab-btn" data-goto="work" aria-label="Work">
+        <span class="tb-ic" aria-hidden="true">⛏</span><span class="tb-label">Work</span>
+      </button>
+      <button class="tab-btn" data-goto="log" aria-label="Ship log">
+        <span class="tb-ic" aria-hidden="true">≡</span><span class="tb-label">Log</span>
+      </button>
+      <button class="tab-btn" data-goto="links" aria-label="Links">
+        <span class="tb-ic" aria-hidden="true">↗</span><span class="tb-label">Links</span>
+      </button>
+    </nav>
+
     <footer class="footer">
-      <div class="footer-inner">
-        <p>© <span id="year">2026</span> Jay · @JustJayDev</p>
-        <p class="mono faint" data-i18n="footer.built">Built on Android with Operit · Hosted on GitHub Pages</p>
+      <div class="footer-inner shell">
+        <p>© <span id="year">2026</span> Jay · <span class="accent">@JustJayDev</span></p>
+        <p>Forged on Android with Operit · <span class="accent">GitHub Pages</span></p>
       </div>
     </footer>
 
-    <nav class="bottom-nav" aria-label="Mobile">
-      <a href="#top">Home</a>
-      <a href="#work">Work</a>
-      <a href="#ships">Ships</a>
-      <a href="#reach">Reach</a>
-    </nav>
+    <script>
+      // ---------- Device detection ----------
+      (function(){
+        var mq = window.matchMedia;
+        var fine = mq && mq("(pointer: fine)").matches;
+        var w = window.innerWidth;
+        // Screen size decides the layout; pointer decides hover affordances.
+        var device = (w >= 1024) ? "desktop" : "phone";
+        document.documentElement.setAttribute("data-device", device);
+        document.documentElement.setAttribute("data-fine", fine ? "true" : "false");
+        // react live to breakpoint changes
+        if(mq){
+          var bp = mq("(min-width: 1024px)");
+          var on = function(){ document.documentElement.setAttribute("data-device", bp.matches ? "desktop" : "phone"); };
+          bp.addEventListener ? bp.addEventListener("change", on) : bp.addListener(on);
+        }
+      })();
+      // ---------- Data ----------
+      var PROJECTS = [
+        { n:"01", name:"Toxic Quad Gaming", desc:"Free Fire MAX squad site — live on staging.", url:"https://justjaydev.github.io/toxic-quad-gaming/", tech:["HTML","JS"] },
+        { n:"02", name:"GameX Zone", desc:"Tournament arena landing — own SCSS/TS/Python pipeline.", url:"https://justjaydev.github.io/gamex-zone-revamp/", tech:["SCSS","TS","Python"] },
+        { n:"03", name:"NightForge", desc:"Builder brand hub.", url:"https://github.com/nightforgeio", tech:["GitHub","Shell"] },
+        { n:"04", name:"NightForge Connect", desc:"Serverless visitor chat — Supabase.", url:"https://justjaydev.github.io/nightforge-connect/", tech:["JS","Supabase"] },
+        { n:"05", name:"AR Esport", desc:"Concept landing — tournament page.", url:"https://justjaydev.github.io/ar-esport-revamp/", tech:["HTML","CSS"] },
+        { n:"06", name:"K.K.C Dairy", desc:"Bilingual milk ledger — per-person diaries.", url:"https://justjaydev.github.io/k-k-c-dairy/", tech:["JS","Supabase"] },
+        { n:"07", name:"Shop Template", desc:"Food-shop PWA — WhatsApp order handoff.", url:"https://justjaydev.github.io/shop-template/", tech:["PWA"] },
+        { n:"08", name:"Indore Physio", desc:"Verified clinic directory.", url:"https://justjaydev.github.io/indore-physio-directory/", tech:["SEO"] },
+        { n:"09", name:"KaizenFF", desc:"Free Fire MAX YouTube channel.", url:"https://www.youtube.com/@kaizenff.official", tech:["FF Max"] }
+      ];
+      var SHIPLOG = [
+        { d:"2026-11-04", t:"Forge Station v11", x:"Landing revamp — engineering-ledger design, all links verified live, GitHub wired to API.", g:"Site" },
+        { d:"2026-11-04", t:"contact-hub git repaired", x:"Re-cloned from healthy remote — clean on main.", g:"Tooling" },
+        { d:"2026-11-01", t:"Toxic Quad Gaming live", x:"Squad site pushed to main.", g:"Gaming" },
+        { d:"2026-10-31", t:"GameX Zone revamp live", x:"Tournament arena on own SCSS/TS/Python.", g:"Gaming" },
+        { d:"2026-10-30", t:"MIGRATION v2", x:"7 repos live on staging.", g:"Site" },
+        { d:"2026-10-24", t:"KaizenFF channel", x:"Free Fire MAX YouTube launched.", g:"Gaming" },
+        { d:"2026-10-15", t:"shop-template v1", x:"Food-shop PWA — WhatsApp handoff.", g:"PWA" },
+        { d:"2026-09-20", t:"NightForge brand", x:"Identity, workspace, first repos.", g:"Brand" }
+      ];
+      var LINKS = [
+        { label:"GitHub", sub:"@JustJayDev", url:"https://github.com/JustJayDev" },
+        { label:"YouTube", sub:"@kaizenff.official", url:"https://www.youtube.com/@kaizenff.official" },
+        { label:"Email", sub:"jaykumar.c2010@gmail.com", url:"mailto:jaykumar.c2010@gmail.com" }
+      ];
 
-    <div class="palette-overlay" id="palette-overlay" role="dialog" aria-modal="true" aria-label="Command palette">
-      <div class="palette">
-        <input type="text" id="palette-input" placeholder="Type a command…" autocomplete="off" />
-        <div class="palette-results" id="palette-results"></div>
-      </div>
-    </div>
+      function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-    <noscript>
-      <style>
-        .reveal { opacity: 1; transform: none; }
-      </style>
-      <p style="text-align:center;padding:20px;color:#ff7a3c">
-        This console works best with JavaScript enabled.
-      </p>
-    </noscript>
-    <script type="module" src="js/main.js"></script>
+      document.getElementById("work-list").innerHTML = PROJECTS.map(function(p){
+        return '<div class="tool reveal">' +
+          '<span class="tool-num">'+esc(p.n)+'</span>' +
+          '<div><h3>'+esc(p.name)+'</h3>' +
+          '<div class="tool-desc">'+esc(p.desc)+'</div>' +
+          '<div class="tech">'+p.tech.map(function(t){return '<span>'+esc(t)+'</span>';}).join("")+'</div></div>' +
+          '<a class="go" href="'+esc(p.url)+'" target="_blank" rel="noopener">open</a>' +
+          '</div>';
+      }).join("");
+
+      document.getElementById("log-list").innerHTML = SHIPLOG.map(function(s){
+        return '<div class="log-item reveal">' +
+          '<span class="log-date">'+esc(s.d)+'</span>' +
+          '<div><div class="log-title">'+esc(s.t)+'</div>' +
+          '<div class="log-desc">'+esc(s.x)+'</div>' +
+          '<span class="log-tag">'+esc(s.g)+'</span></div></div>';
+      }).join("");
+
+      document.getElementById("links-grid").innerHTML = LINKS.map(function(k){
+        return '<a class="link reveal" href="'+esc(k.url)+'" target="_blank" rel="noopener">' +
+          '<span>'+esc(k.label)+' <span class="sub">— '+esc(k.sub)+'</span></span>' +
+          '<span class="arrow">↗</span></a>';
+      }).join("");
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Reveal
+      var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("is-visible"); io.unobserve(e.target); } }); }, { threshold:0.12 });
+      document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+      // ---------- Mobile tab app ----------
+      (function(){
+        var tabs = document.querySelectorAll(".tab");
+        var btns = document.querySelectorAll(".tab-btn");
+        var current = "home";
+        function show(name, scrollTop){
+          current = name;
+          tabs.forEach(function(t){ t.classList.toggle("is-active", t.getAttribute("data-tab") === name); });
+          btns.forEach(function(b){ b.classList.toggle("is-active", b.getAttribute("data-goto") === name); });
+          if(scrollTop !== false){
+            window.scrollTo(0, 0);
+            var el = document.getElementById("tab-"+name);
+            if(el && el.querySelector(".reveal")){ el.querySelectorAll(".reveal").forEach(function(r){ r.classList.add("is-visible"); }); }
+          }
+        }
+        btns.forEach(function(b){
+          b.addEventListener("click", function(){
+            show(b.getAttribute("data-goto"), true);
+          });
+        });
+        // Start on Home
+        show("home", false);
+      })();
+
+      // Heat meter + anvil readout
+      var fill = document.getElementById("heat-fill"), heat = 0;
+      var anvilHeat = document.getElementById("anvil-heat");
+      var t = setInterval(function(){
+        heat += 1 + Math.random()*3;
+        if(heat > 100) heat = 0;
+        fill.style.width = heat + "%";
+        var c = Math.round(1200 + (heat/100)*500);
+        var readout = document.getElementById("heat-read");
+        if(readout) readout.textContent = c + "°C";
+        if(anvilHeat) anvilHeat.textContent = c;
+      }, 400);
+
+      // ---------- Forge: WebGL molten metal + sparks ----------
+      (function(){
+        var canvas = document.getElementById("forge");
+        if(!canvas || !window.WebGLRenderingContext) return;
+        if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var gl = canvas.getContext("webgl", { antialias:true, alpha:true });
+        if(!gl) return;
+
+        var VS = [
+          "attribute vec3 aPos;","attribute float aSize;","attribute float aA;",
+          "attribute vec3 aCol;","attribute float aType;",
+          "uniform mat4 uProj;","uniform mat4 uView;","uniform float uT;",
+          "varying float vA;","varying vec3 vCol;",
+          "void main(){",
+          "  vec3 p = aPos;",
+          "  // metal: gentle liquid ripple; sparks: fly upward & fade",
+          "  float kind = aType;",
+          "  p.x += sin(uT*0.9 + aPos.z*2.0 + aPos.y*1.3)*0.06*kind;",
+          "  p.y += cos(uT*0.7 + aPos.x*1.7)*0.05*kind;",
+          "  vec4 w = uProj * uView * vec4(p, 1.0);",
+          "  gl_Position = w;",
+          "  gl_PointSize = aSize * (260.0 / max(0.4, -w.z));",
+          "  vA = aA;",
+          "  vCol = aCol;",
+          "}"
+        ].join("\n");
+        var FS = [
+          "precision mediump float;","varying float vA;","varying vec3 vCol;",
+          "void main(){",
+          "  vec2 c = gl_PointCoord - vec2(0.5);",
+          "  float d = dot(c,c);",
+          "  if(d > 0.25) discard;",
+          "  float a = smoothstep(0.25, 0.02, d);",
+          "  gl_FragColor = vec4(vCol, a*vA);",
+          "}"
+        ].join("\n");
+        function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; }
+        var prog = gl.createProgram();
+        gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+        gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+        gl.linkProgram(prog);
+        if(!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        gl.useProgram(prog);
+
+        var aPos=gl.getAttribLocation(prog,"aPos"), aSize=gl.getAttribLocation(prog,"aSize"),
+            aA=gl.getAttribLocation(prog,"aA"), aCol=gl.getAttribLocation(prog,"aCol"),
+            aType=gl.getAttribLocation(prog,"aType"),
+            uProj=gl.getUniformLocation(prog,"uProj"), uView=gl.getUniformLocation(prog,"uView"),
+            uT=gl.getUniformLocation(prog,"uT");
+
+        // Metal bed particles
+        var M = 1400, S = 700;
+        var N = M + S;
+        var pos = new Float32Array(N*3), size = new Float32Array(N), a = new Float32Array(N),
+            col = new Float32Array(N*3), type = new Float32Array(N);
+        function rand(a,b){ return a + Math.random()*(b-a); }
+
+        for(var i=0;i<M;i++){
+          pos[i*3+0] = rand(-2.2, 2.2);
+          pos[i*3+1] = rand(-0.9, -0.3);
+          pos[i*3+2] = rand(-1.5, 1.5);
+          size[i] = rand(2.5, 8);
+          a[i] = rand(0.35, 0.85);
+          type[i] = 1; // metal
+          var h = rand(0.5, 1);
+          if(h > 0.85){ col[i*3+0]=1; col[i*3+1]=0.7; col[i*3+2]=0.35; }
+          else if(h > 0.6){ col[i*3+0]=1; col[i*3+1]=0.45; col[i*3+2]=0.15; }
+          else { col[i*3+0]=0.5; col[i*3+1]=0.15; col[i*3+2]=0.05; }
+        }
+        for(var j=0;j<S;j++){
+          var k = M + j;
+          pos[k*3+0] = rand(-2.2, 2.2);
+          pos[k*3+1] = rand(-0.9, -0.5);
+          pos[k*3+2] = rand(-1.5, 1.5);
+          size[k] = rand(0.8, 2.6);
+          a[k] = rand(0.4, 1);
+          type[k] = 0; // spark -> flies up
+          col[k*3+0]=1.0; col[k*3+1]=rand(0.55,0.85); col[k*3+2]=rand(0.15,0.5);
+        }
+
+        function buf(arr){ var b=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,arr,gl.DYNAMIC_DRAW); return b; }
+        var bPos=buf(pos), bSize=buf(size), bA=buf(a), bCol=buf(col), bType=buf(type);
+        function attr(loc,b,n){ gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,n,gl.FLOAT,false,0,0); }
+
+        var rotY=0, rotX=-0.08, tRotY=0, tRotX=-0.08, time=0;
+        window.addEventListener("pointermove", function(e){
+          tRotY = (e.clientX/window.innerWidth - 0.5)*0.8;
+          tRotX = -0.08 + (e.clientY/window.innerHeight - 0.5)*0.3;
+        });
+        function resize(){ canvas.width=canvas.clientWidth; canvas.height=canvas.clientHeight; gl.viewport(0,0,canvas.width,canvas.height); }
+        window.addEventListener("resize", resize); resize();
+
+        function frame(){
+          time += 0.016;
+          rotY += (tRotY-rotY)*0.04; rotX += (tRotX-rotX)*0.04;
+          gl.uniform1f(uT, time);
+
+          // spark physics: fly up, reset at top
+          for(var s=0;s<S;s++){
+            var k=M+s;
+            pos[k*3+1] += 0.02 + Math.random()*0.012;
+            pos[k*3+0] += (Math.random()-0.5)*0.01;
+            if(pos[k*3+1] > 1.6){ pos[k*3+1] = rand(-0.9,-0.5); pos[k*3+0]=rand(-2.2,2.2); }
+          }
+          gl.bindBuffer(gl.ARRAY_BUFFER, bPos);
+          gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
+
+          var cy=Math.cos(rotY), sy=Math.sin(rotY), cx=Math.cos(rotX), sx=Math.sin(rotX);
+          var view = new Float32Array([
+            cy,0,sy,0,  0,1,0,0,  -sy,0,cy,0,  0,0,0,1
+          ]);
+          var rotXm = new Float32Array([1,0,0,0, 0,cx,-sx,0, 0,sx,cx,0, 0,0,0,1]);
+          var v2 = new Float32Array(16);
+          for(var r=0;r<4;r++) for(var c=0;c<4;c++) v2[c*4+r] = rotXm[r]*view[c*4] + rotXm[4+r]*view[c*4+1] + rotXm[8+r]*view[c*4+2] + rotXm[12+r]*view[c*4+3];
+          gl.uniformMatrix4fv(uView, false, v2);
+
+          var fov=55*Math.PI/180, near=0.1, far=20, f=1/Math.tan(fov/2), asp=canvas.width/Math.max(1,canvas.height);
+          gl.uniformMatrix4fv(uProj, false, new Float32Array([f/asp,0,0,0, 0,f,0,0, 0,0,(far+near)/(near-far),-1, 0,0,(2*far*near)/(near-far),0]));
+
+          gl.clearColor(0,0,0,0);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+          gl.enable(gl.BLEND); gl.disable(gl.DEPTH_TEST);
+
+          attr(aPos,bPos,3); attr(aSize,bSize,1); attr(aA,bA,1); attr(aCol,bCol,3); attr(aType,bType,1);
+          gl.drawArrays(gl.POINTS, 0, N);
+          requestAnimationFrame(frame);
+        }
+        frame();
+      })();
+    </script>
   </body>
 </html>
