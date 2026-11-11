@@ -155,7 +155,17 @@
       /* ---- Sections ---- */
       section { padding: 88px 0; }
       .sec-head { display:flex; align-items:baseline; gap:16px; margin-bottom:36px; flex-wrap:wrap; }
-      .sec-title { font-family:var(--serif); font-weight:800; font-size: clamp(1.8rem,5vw,2.6rem); color:var(--white-hot); text-transform:uppercase; }
+      .sec-title {
+        font-family:var(--serif); font-weight:800; font-size: clamp(1.8rem,5vw,2.6rem);
+        color:var(--white-hot); text-transform:uppercase;
+        display:flex; align-items:center; gap:14px;
+      }
+      .sec-title::before {
+        content:""; width:11px; height:11px; flex:0 0 auto;
+        background: var(--ember);
+        transform: rotate(45deg);
+        box-shadow: inset 0 0 0 1.5px rgba(0,0,0,0.25);
+      }
       .sec-sub { font-family:var(--display); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-dim); }
 
       /* ---- Projects: "tooling" list, not cards ---- */
@@ -168,10 +178,30 @@
       .group-head:first-child { margin-top: 20px; }
       .tool-name { font-family: var(--serif); font-weight: 800; font-size: clamp(1.1rem,3vw,1.45rem); color: var(--ink); }
       .tool {
-        display:grid; grid-template-columns: 40px 1fr auto;
-        gap: 20px; align-items:center;
+        display:grid; grid-template-columns: 40px 96px 1fr auto;
+        gap: 18px; align-items:center;
         padding: 24px 0; border-bottom: 1px solid var(--hairline);
         transition: background .2s, padding-left .2s;
+      }
+      .tool-preview {
+        width: 96px; height: 64px;
+        border: 1px solid var(--hairline); border-radius: 3px;
+        background: linear-gradient(180deg, #140c08, #0c0805);
+        padding: 8px 10px;
+        display: grid; grid-template-rows: 6px 1fr; gap: 6px;
+        position: relative; overflow: hidden;
+      }
+      .tool-preview::after {
+        content:""; position:absolute; inset:0;
+        background: radial-gradient(120% 80% at 50% 100%, rgba(255,106,43,0.14), transparent 65%);
+      }
+      .pv-bar { height: 6px; width: 42%; background: var(--hairline); border-radius: 2px; }
+      .pv-block { width: 100%; height: 100%; border: 1px solid var(--hairline); border-radius: 2px; background: rgba(232,161,58,0.06); }
+      .pv-line { display:block; width: 86%; height: 3px; background: var(--hairline); border-radius: 2px; }
+      .pv-line.short { width: 60%; }
+      @media (min-width:720px) {
+        .tool { grid-template-columns: 50px 120px 1fr auto; }
+        .tool-preview { width: 120px; height: 80px; }
       }
       html[data-fine="true"] .tool:hover { background: linear-gradient(90deg, rgba(255,106,43,0.06), transparent); padding-left: 10px; }
       .tool-num { font-family:var(--display); font-size:13px; color:var(--gold); }
@@ -288,7 +318,7 @@
         padding:10px 0 12px; background:none; border:none; cursor:pointer;
         font-family:var(--display); color:var(--ink-dim); font-size:11px; letter-spacing:0.04em;
       }
-      html[data-device="phone"] .tab-btn .tb-ic { font-size:17px; line-height:1; }
+      html[data-device="phone"] .tab-btn .tb-ic { width:22px; height:22px; }
       html[data-device="phone"] .tab-btn.is-active { color:var(--ember); }
       html[data-device="phone"] .tab-btn.is-active .tb-ic { color:var(--gold); }
       html[data-device="phone"] .tab-btn:focus-visible { outline:2px solid var(--ember); outline-offset:-2px; }
@@ -415,16 +445,29 @@
     <!-- Mobile bottom tab bar -->
     <nav class="tabbar" aria-label="Sections">
       <button class="tab-btn is-active" data-goto="home" aria-label="Home">
-        <span class="tb-ic" aria-hidden="true">▚</span><span class="tb-label">Home</span>
+        <svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 3 3 8v9l9 5 9-5V8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M8.5 21v-6a3.5 3.5 0 0 1 7 0v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <circle cx="12" cy="11.5" r="1.4" fill="currentColor"/>
+        </svg><span class="tb-label">Home</span>
       </button>
       <button class="tab-btn" data-goto="work" aria-label="Work">
-        <span class="tb-ic" aria-hidden="true">⛏</span><span class="tb-label">Work</span>
+        <svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M14.5 3.5 20.5 9.5 17 13 11 7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M3 21 9 15M9 15l2.5-2.5M9 15l-2 2M15 9l-2-2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg><span class="tb-label">Work</span>
       </button>
       <button class="tab-btn" data-goto="log" aria-label="Ship log">
-        <span class="tb-ic" aria-hidden="true">≡</span><span class="tb-label">Log</span>
+        <svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M8.5 9h7M8.5 12.5h7M8.5 16h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg><span class="tb-label">Log</span>
       </button>
       <button class="tab-btn" data-goto="links" aria-label="Links">
-        <span class="tb-ic" aria-hidden="true">↗</span><span class="tb-label">Links</span>
+        <svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg><span class="tb-label">Links</span>
       </button>
     </nav>
 
@@ -489,6 +532,12 @@
         out += items.map(function(p){
           return '<div class="tool reveal">' +
             '<span class="tool-num">'+esc(p.n)+'</span>' +
+            '<div class="tool-preview" aria-hidden="true">' +
+              '<span class="pv-bar"></span>' +
+              '<span class="pv-block"></span>' +
+              '<span class="pv-line"></span>' +
+              '<span class="pv-line short"></span>' +
+            '</div>' +
             '<div><h3 class="tool-name">'+esc(p.name)+'</h3>' +
             '<div class="tool-desc">'+esc(p.desc)+'</div>' +
             '<div class="tech">'+p.tech.map(function(t){return '<span>'+esc(t)+'</span>';}).join("")+'</div></div>' +
