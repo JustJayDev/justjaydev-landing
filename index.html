@@ -160,6 +160,13 @@
 
       /* ---- Projects: "tooling" list, not cards ---- */
       .tooling { border-top: 1px solid var(--hairline); }
+      .group-head {
+        font-family: var(--display); font-size: 11.5px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--gold); margin: 34px 0 4px;
+      }
+      .group-head:first-child { margin-top: 20px; }
+      .tool-name { font-family: var(--serif); font-weight: 800; font-size: clamp(1.1rem,3vw,1.45rem); color: var(--ink); }
       .tool {
         display:grid; grid-template-columns: 40px 1fr auto;
         gap: 20px; align-items:center;
@@ -381,7 +388,7 @@
       <section class="tab" id="tab-work" data-tab="work" aria-label="Work">
         <div class="sec-head">
           <h2 class="sec-title">The Work</h2>
-          <span class="sec-sub">every site I built</span>
+          <span class="sec-sub">personal builds + what I can build for you</span>
         </div>
         <div class="tooling" id="work-list"><!-- injected --></div>
       </section>
@@ -447,15 +454,13 @@
       })();
       // ---------- Data ----------
       var PROJECTS = [
-        { n:"01", name:"Toxic Quad Gaming", desc:"Free Fire MAX squad site — live on staging.", url:"https://justjaydev.github.io/toxic-quad-gaming/", tech:["HTML","JS"] },
-        { n:"02", name:"GameX Zone", desc:"Tournament arena landing — own SCSS/TS/Python pipeline.", url:"https://justjaydev.github.io/gamex-zone-revamp/", tech:["SCSS","TS","Python"] },
-        { n:"03", name:"NightForge", desc:"Builder brand hub.", url:"https://github.com/nightforgeio", tech:["GitHub","Shell"] },
-        { n:"04", name:"NightForge Connect", desc:"Serverless visitor chat — Supabase.", url:"https://justjaydev.github.io/nightforge-connect/", tech:["JS","Supabase"] },
-        { n:"05", name:"AR Esport", desc:"Concept landing — tournament page.", url:"https://justjaydev.github.io/ar-esport-revamp/", tech:["HTML","CSS"] },
-        { n:"06", name:"K.K.C Dairy", desc:"Bilingual milk ledger — per-person diaries.", url:"https://justjaydev.github.io/k-k-c-dairy/", tech:["JS","Supabase"] },
-        { n:"07", name:"Shop Template", desc:"Food-shop PWA — WhatsApp order handoff.", url:"https://justjaydev.github.io/shop-template/", tech:["PWA"] },
-        { n:"08", name:"Indore Physio", desc:"Verified clinic directory.", url:"https://justjaydev.github.io/indore-physio-directory/", tech:["SEO"] },
-        { n:"09", name:"KaizenFF", desc:"Free Fire MAX YouTube channel.", url:"https://www.youtube.com/@kaizenff.official", tech:["FF Max"] }
+        { n:"01", name:"Toxic Quad Gaming", group:"personal", desc:"Free Fire MAX squad site — roster, match record, roadmap, recruitment. Live on staging.", url:"https://justjaydev.github.io/toxic-quad-gaming/", tech:["HTML","JS"] },
+        { n:"02", name:"GameX Zone", group:"sale", desc:"Full tournament platform — featured tournaments, game modes, FAQ. Own SCSS/TS/Python pipeline.", url:"https://justjaydev.github.io/gamex-zone-revamp/", tech:["SCSS","TS","Python"] },
+        { n:"03", name:"NightForge", group:"personal", desc:"My builder brand — identity, workspace, first repos.", url:"https://github.com/nightforgeio", tech:["GitHub","Shell"] },
+        { n:"04", name:"AR Esport", group:"sale", desc:"Mobile esports tournament landing — sign in, enter, win real cash.", url:"https://justjaydev.github.io/ar-esport-revamp/", tech:["HTML","CSS"] },
+        { n:"05", name:"K.K.C Dairy", group:"sale", desc:"Bilingual milk ledger — per-person diaries in Hindi/English.", url:"https://justjaydev.github.io/k-k-c-dairy/", tech:["JS","Supabase"] },
+        { n:"06", name:"Shop Template", group:"sale", desc:"Food-shop PWA template — menu, cart, WhatsApp order handoff.", url:"https://justjaydev.github.io/shop-template/", tech:["PWA"] },
+        { n:"07", name:"Indore Physio", group:"sale", desc:"Verified physiotherapy clinic directory for Indore.", url:"https://justjaydev.github.io/indore-physio-directory/", tech:["SEO"] }
       ];
       var SHIPLOG = [
         { d:"2026-11-04", t:"Forge Station v11", x:"Landing revamp — engineering-ledger design, all links verified live, GitHub wired to API.", g:"Site" },
@@ -475,15 +480,23 @@
 
       function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-      document.getElementById("work-list").innerHTML = PROJECTS.map(function(p){
-        return '<div class="tool reveal">' +
-          '<span class="tool-num">'+esc(p.n)+'</span>' +
-          '<div><h3>'+esc(p.name)+'</h3>' +
-          '<div class="tool-desc">'+esc(p.desc)+'</div>' +
-          '<div class="tech">'+p.tech.map(function(t){return '<span>'+esc(t)+'</span>';}).join("")+'</div></div>' +
-          '<a class="go" href="'+esc(p.url)+'" target="_blank" rel="noopener">open</a>' +
-          '</div>';
-      }).join("");
+      var groups = { personal:"Personal", sale:"I can build this for you" };
+      var out = "";
+      ["personal","sale"].forEach(function(g){
+        var items = PROJECTS.filter(function(p){ return p.group === g; });
+        if(!items.length) return;
+        out += '<h3 class="group-head">'+groups[g]+'</h3>';
+        out += items.map(function(p){
+          return '<div class="tool reveal">' +
+            '<span class="tool-num">'+esc(p.n)+'</span>' +
+            '<div><h3 class="tool-name">'+esc(p.name)+'</h3>' +
+            '<div class="tool-desc">'+esc(p.desc)+'</div>' +
+            '<div class="tech">'+p.tech.map(function(t){return '<span>'+esc(t)+'</span>';}).join("")+'</div></div>' +
+            '<a class="go" href="'+esc(p.url)+'" target="_blank" rel="noopener">open</a>' +
+            '</div>';
+        }).join("");
+      });
+      document.getElementById("work-list").innerHTML = out;
 
       document.getElementById("log-list").innerHTML = SHIPLOG.map(function(s){
         return '<div class="log-item reveal">' +
